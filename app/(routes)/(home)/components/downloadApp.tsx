@@ -5,8 +5,8 @@ import PlayStoreIcon from '@/components/icons/playStore';
 
 const DownloadApp = () => {
   return (
-    <section className="relative flex flex-col-reverse md:grid grid-cols-2 justify-between items-center overflow-hidden py-12 md:py-28 lg:py-40 px-4 md:px-10 lg:px-16 ">
-      <div className="px-10 space-y-6">
+    <section className="relative flex flex-col-reverse md:flex-row  justify-between items-center overflow-hidden ">
+      <div className=" space-y-6">
         <h1 className="text-center md:text-left text-2xl md:text-3xl lg:text-4xl font-extrabold">
           Download our App to get most out of it
         </h1>
@@ -38,13 +38,21 @@ const DownloadApp = () => {
           </div>
         </div>
       </div>
-      <div className="mb-6 md:mb-0 md:absolute md:bottom-[-10%] md:right-[11%]">
+
+      <div className="">
         <CustomImage
           src={mobileImage}
           alt="download mobile image"
           className=" w-full md:w-72"
         />
       </div>
+      {/* <div className="mb-6 md:mb-0 md:absolute md:bottom-[-10%] md:right-[11%]">
+        <CustomImage
+          src={mobileImage}
+          alt="download mobile image"
+          className=" w-full md:w-72"
+        />
+      </div> */}
     </section>
   );
 };

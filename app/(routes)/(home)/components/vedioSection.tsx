@@ -1,6 +1,6 @@
 const VedioSection = () => {
   return (
-    <div className="relative h-96 p-24 flex items-center justify-center">
+    <section className="relative h-96 p-24 flex items-center justify-center">
       <div className="h-full object-cover bg-center flex items-center justify-center">
         <video autoPlay muted loop className="w-full video">
           <source src="/car.mp4" type="video/mp4" />
@@ -11,7 +11,7 @@ const VedioSection = () => {
         <h1 className="text-4xl font-bold mb-4">Your Text Here</h1>
         <p className="text-lg">Your additional text here</p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,5 +1,7 @@
 'use client';
 
+import Banner from '@/components/banner';
+import Container from '@/components/container';
 import Combobox from '@/components/ui/combobox';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -203,15 +205,15 @@ const ReservationsPage = () => {
     setRange([range[0], newValue]);
   };
   return (
-    <div className="min-h-screen">
-      <div className="grid grid-cols-2 gap-1">
-        <div className="grid grid-cols-2 gap-1">
-          <div className="my-4 mx-2">
+    <Container>
+      <Banner />
+      <div className="main grid lg:grid-cols-2 grid-cols-1  gap-1">
+        <div className="left-side grid grid-cols-1 md:grid-cols-2 gap-1">
+          <div className=" filter-side flex flex-col  gap-4 ">
             <h3 className="text-xl font-bold">Filter By:</h3>
-
             <div className="relative my-4">
               <Search className="absolute top-0 bottom-0 my-auto text-gray-500 left-3" />
-              <Input type="text" placeholder="Search" className="pl-12 pr-4" />
+              <Input type="text" placeholder="Search" className=" pr-4" />
             </div>
 
             <div className="pb-2">
@@ -301,14 +303,14 @@ const ReservationsPage = () => {
             />
           </div>
 
-          <div className="h-screen overflow-x-scroll no-scrollbar flex flex-col gap-4">
+          <div className="car-result-site  overflow-x-scroll no-scroll md:overflow-x-hidden md:overflow-y-scroll flex flex-row md:flex-col md:h-screen gap-4">
             {carData.map((car, ind) => (
               <CarCard key={ind} />
             ))}
           </div>
         </div>
 
-        <div className="flex-1 h-screen">
+        <div className="right-side flex-1 h-screen">
           <p className="font-bold  text-gray-600 mb-2">FORD FOCUS</p>
           <div className="flex justify-between items-center flex-col lg:flex-row">
             <p className="font-bold text-2xl ">{carDetails.model} </p>
@@ -319,7 +321,7 @@ const ReservationsPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -21,7 +21,7 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="">
       <SecondaryNavBar />
 
       <SideBar sideNavItems={dashboardNavItems({ role })}>{children}</SideBar>

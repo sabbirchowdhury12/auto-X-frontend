@@ -23,8 +23,11 @@ const CarCard = () => {
   return (
     <div className=" ">
       {carData.map(car => (
-        <div key={car.brand} className="  shadow-lg p-4 text-sm rounded-lg">
-          <div className="flex  flex-col lg:flex-row justify-between gap-4 items-center ">
+        <div
+          key={car.brand}
+          className="w-72 md:w-full shadow-lg p-4 text-sm rounded-lg"
+        >
+          <div className="flex justify-between gap-4 items-center ">
             <div className="flex gap-2 items-center border-2 p-1 rounded-full">
               <Star />{' '}
               <p>
@@ -50,7 +53,7 @@ const CarCard = () => {
             className="w-full h-52 my-4"
           />
           <p className="font-bold  text-gray-600 mb-2">FORD FOCUS</p>
-          <div className="flex justify-between items-center flex-col lg:flex-row">
+          <div className="flex justify-between items-center ">
             <p className="font-bold text-2xl ">{car.model} </p>
             <p>
               <span className="text-lg font-bold">${car.price} </span>
@@ -58,7 +61,7 @@ const CarCard = () => {
             </p>
           </div>
           <Separator />
-          <div className=" flex items-center justify-between flex-col lg:flex-row">
+          <div className=" flex items-center justify-between ">
             <p className="flex items-center gap-2">
               {' '}
               <CarFront />

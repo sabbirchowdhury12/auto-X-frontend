@@ -1,4 +1,6 @@
-import BookingSection from './components/bookingSection';
+import Container from '@/components/container';
+import BookingForm from './components/bookingForm';
+import ContactSection from './components/bookingSection';
 import BookingStep from './components/bookingStep';
 import DownloadApp from './components/downloadApp';
 import Hero from './components/hero';
@@ -8,15 +10,21 @@ import VedioSection from './components/vedioSection';
 const HomePage = () => {
   return (
     <>
-      <div className="">
-        <Hero />
-      </div>
+      <Hero />
+      <Container>
+        <BookingStep />
+      </Container>
 
-      <BookingStep />
-      <TopVehicle />
-      <BookingSection />
+      <BookingForm />
+
+      <Container>
+        <TopVehicle />
+      </Container>
+      <ContactSection />
       <VedioSection />
-      <DownloadApp />
+      <Container>
+        <DownloadApp />
+      </Container>
     </>
   );
 };

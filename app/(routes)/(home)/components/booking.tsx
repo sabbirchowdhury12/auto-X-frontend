@@ -13,7 +13,7 @@ import { CalendarCheck, CalendarDays } from 'lucide-react';
 
 const BookingPage = () => {
   return (
-    <Tabs defaultValue="daily" className="h-52">
+    <Tabs defaultValue="daily" className="">
       <TabsList>
         <Select>
           <SelectTrigger className="w-[180px]">

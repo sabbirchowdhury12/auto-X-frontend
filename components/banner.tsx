@@ -1,11 +1,17 @@
-import { Button } from '@/components/ui/button';
+import { Button } from './ui/button';
 
-const ContactSection = () => {
+const Banner = () => {
   return (
-    <section
-      className="relative  bg-fixed bg-cover bg-center bg-no-repeat py-32 "
+    <div
+      className="  bg-cover bg-center bg-no-repeat py-32  h-1/2"
       style={{
         backgroundImage: `url(https://duruthemes.com/demo/html/renax/light/img/slider/3.jpg)`,
+
+        // backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        objectFit: 'cover',
+        display: 'block',
       }}
     >
       <div className="absolute bottom-0 left-0 inset-0 bg-black opacity-50 w-full "></div>
@@ -18,8 +24,8 @@ const ContactSection = () => {
           Contact Us <span className="ti-arrow-top-right"></span>
         </Button>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ContactSection;
+export default Banner;

@@ -3,14 +3,15 @@ import { CalendarCheck, MapPin } from 'lucide-react';
 
 const BookingStep = () => {
   return (
-    <section className="text-center my-16 md:my-28">
+    <section className="text-center ">
       <h3 className="uppercase text-sm md:text-md font-extrabold opacity-50">
         How it work
       </h3>
       <h2 className="text-2xl lg:text-3xl font-bold mt-4  w-[85%] mx-auto">
         Rent your desired car with following 3 working steps
       </h2>
-      <div className="w-full md:w-[80%] lg:w-2/3 mx-auto space-x-4 my-10 space-y-10 md:space-y-0 md:flex justify-between items-center">
+
+      <div className=" my-10 space-y-10 md:space-y-0 md:flex justify-between items-center">
         <div className="flex flex-col items-center justify-center space-y-2 mt-2">
           <CalendarCheck className="w-20 h-20 p-6 rounded-lg shadow-xl mb-4 cursor-pointer" />
           <h1 className="text-lg font-bold">Pick-up data/time</h1>

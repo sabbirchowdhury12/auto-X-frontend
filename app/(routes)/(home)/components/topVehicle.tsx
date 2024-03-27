@@ -64,7 +64,7 @@ const TopVehicle = () => {
   };
 
   return (
-    <section className="text-center py-28 bg-black text-white">
+    <section className="text-center  ">
       <h3 className="uppercase text-sm font-extrabold opacity-90">
         Meet The Fleet
       </h3>
@@ -72,7 +72,7 @@ const TopVehicle = () => {
         Our Most Popular Rental Vehicle
       </h2>
 
-      <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 gap-4 justify-between p-10 my-6">
+      <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 gap-4 justify-between  my-6">
         <div className="col-span-1">
           {Vehicles.map((vehicle, index) => (
             <Button

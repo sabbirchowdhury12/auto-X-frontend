@@ -17,7 +17,7 @@ const AccountLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="">
       <SecondaryNavBar />
       <SideBar sideNavItems={accountNavItems({ role })}>{children}</SideBar>
     </div>

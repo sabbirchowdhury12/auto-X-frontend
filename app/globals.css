@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+section {
+  margin-top: 140px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -176,4 +188,39 @@
 input[type='range' i] {
   background: #000;
   color: #000;
+}
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.125);
+}
+.nav-scroll {
+  background: red;
+  padding: 0 0 0 0;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  /* z-index: 2; */
+  transform: translateY(100px);
+  border: none;
+
+  box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
+}
+
+.slick-next {
+  right: 25px;
+  display: block;
+}
+
+.slick-next:before {
+  color: red;
+  font-size: 50px;
+}
+.slick-dots {
+  bottom: 25px;
 }
