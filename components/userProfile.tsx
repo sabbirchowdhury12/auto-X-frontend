@@ -3,13 +3,18 @@
 import { authKey } from '@/constants/authKey';
 import { useGetProfileQuery } from '@/redux/api/profileApi';
 import { getClientUserInfo, removeUserInfo } from '@/services/auth.service';
-import { LayoutDashboard, LogOut, Settings, User } from 'lucide-react';
+import {
+  CircleUserRoundIcon,
+  LayoutDashboard,
+  LogOut,
+  Settings,
+  User,
+} from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import CustomImage from './customImage';
 import { Avatar } from './ui/avatar';
-import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,8 +52,9 @@ export default function UserProfile() {
           )}
         </DropdownMenuTrigger>
       ) : (
-        <Link href={'/login'}>
-          <Button variant={'outline'}>Login</Button>
+        <Link href={'/login'} className="flex items-center gap-2">
+          <CircleUserRoundIcon color="#fffafa" strokeWidth={1.75} />
+          <span className="text-white font-bold">LOGIN</span>
         </Link>
       )}
 

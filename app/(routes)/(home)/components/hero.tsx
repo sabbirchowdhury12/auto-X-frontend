@@ -1,16 +1,29 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 'use client';
 import { Button } from '@/components/ui/button';
+import { MoveUpRight } from 'lucide-react';
 import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
 const data = [
-  'https://picsum.photos/seed/random101/500/500',
-  'https://picsum.photos/seed/random102/500/500',
-  'https://picsum.photos/seed/random101/500/500',
-  // Add more image paths as needed
+  {
+    img: 'https://duruthemes.com/demo/html/renax/light/img/slider/12.jpg',
+    heading: 'RENT CAR',
+    title: 'Enjoy Your Journey',
+  },
+  {
+    img: 'https://duruthemes.com/demo/html/renax/light/img/slider/1.jpg',
+    heading: 'GET CAR',
+    title: 'Make Your Journey Safe',
+  },
+  {
+    img: 'https://duruthemes.com/demo/html/renax/light/img/slider/11.jpg',
+    heading: 'RENT CAR',
+    title: 'Enjoy Your Journey ',
+  },
 ];
 
 const Hero = () => {
@@ -33,21 +46,27 @@ const Hero = () => {
       <Slider ref={sliderRef} {...settings}>
         {data.map((slider, ind) => (
           <div key={ind} className="relative lg:h-screen">
-            <img
-              src={
-                'https://duruthemes.com/demo/html/renax/light/img/slider/1.jpg'
-              }
-              height={100}
-              className="h-full w-full"
-            />
+            <img src={slider?.img} className="h-full w-full" />
 
             <div className="absolute bottom-0 left-0 inset-0 bg-black opacity-50 w-full z-10"></div>
 
             <div className="absolute z-20  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center fade">
-              <p className="text-6xl font-bold">Rental Car</p>
-              <p className="text-2xl my-4">Enjoy Your Tour</p>
-              <Button>Veiw Deatails</Button>
-              <Button className="ml-4">Rent Now</Button>
+              <p className=" text-primary font-bold uppercase tracking-widest		">
+                Premium*
+              </p>
+              <h2 className="text-4xl font-bold">{slider?.heading}</h2>
+              <h2 className="text-2xl my-4 flex ">
+                {slider?.title}{' '}
+                <p className="font-bold text-primary ">/24 hours</p>
+              </h2>
+              <div className="mt-10">
+                <Button>
+                  Veiw Deatails <MoveUpRight size={14} className="ml-2" />
+                </Button>
+                <Button variant={'defaultOutline'} className="ml-4">
+                  Rent Now <MoveUpRight size={14} className="ml-2" />
+                </Button>
+              </div>
             </div>
           </div>
         ))}

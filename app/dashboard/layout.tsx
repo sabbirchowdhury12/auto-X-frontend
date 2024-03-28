@@ -13,9 +13,8 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const role = 'super_admin';
   const user = getClientUserInfo();
-
+  const role = 'customer';
   if (!user) {
     redirect('/login');
   }

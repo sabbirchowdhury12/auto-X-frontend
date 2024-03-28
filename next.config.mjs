@@ -6,6 +6,7 @@ const nextConfig = {
       'github.com',
       'picsum.photos',
       'images.unsplash.com',
+      'duruthemes.com',
     ],
     remotePatterns: [
       {

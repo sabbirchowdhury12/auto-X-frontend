@@ -2,89 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); */
+
 *,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   position: relative;
+  font-family: ro;
 }
 
 section {
   margin-top: 140px;
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 @layer utilities {
@@ -121,6 +51,28 @@ section {
   }
 }
 
+/* navbar ----------- */
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.nav-scroll {
+  background: #253241;
+  padding: 8px 0;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  transform: translateY(100px);
+  border: none;
+  box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
+}
+
 /* car filter section */
 .car-info li {
   border: 2px solid #706f7b;
@@ -143,40 +95,6 @@ section {
   position: relative;
 }
 
-.carousel-image .absolute {
-  /* Positioning the overlay */
-  position: absolute;
-}
-
-.carousel-image .text-white {
-  /* Style for the text on the overlay */
-}
-
-.carousel-image .text-center {
-  /* Center align text */
-}
-
-[data-overlay-dark='5']:before {
-  opacity: 0.5;
-}
-[data-overlay-dark]:before {
-  background: #000;
-}
-
-[data-overlay-dark]:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-[data-overlay-dark] .container {
-  position: relative;
-  z-index: 2;
-}
-
 .video {
   position: absolute;
   z-index: -1;
@@ -188,28 +106,6 @@ section {
 input[type='range' i] {
   background: #000;
   color: #000;
-}
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.125);
-}
-.nav-scroll {
-  background: red;
-  padding: 0 0 0 0;
-  position: fixed;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  transition: transform 0.5s;
-  /* z-index: 2; */
-  transform: translateY(100px);
-  border: none;
-
-  box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
 }
 
 .slick-next {
