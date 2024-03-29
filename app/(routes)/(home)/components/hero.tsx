@@ -51,15 +51,17 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 inset-0 bg-black opacity-50 w-full z-10"></div>
 
             <div className="absolute z-20  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center fade">
-              <p className=" text-primary font-bold uppercase tracking-widest		">
+              <p className=" text-primary font-bold uppercase tracking-widest		text-xs">
                 Premium*
               </p>
-              <h2 className="text-4xl font-bold">{slider?.heading}</h2>
-              <h2 className="text-2xl my-4 flex ">
+              <h2 className="md:text-4xl font-bold text-lg my-2  md:my-4 ">
+                {slider?.heading}
+              </h2>
+              <h2 className="text-sm md:text-2xl   flex justify-center ">
                 {slider?.title}{' '}
                 <p className="font-bold text-primary ">/24 hours</p>
               </h2>
-              <div className="mt-10">
+              <div className="mt-4 md:mt-10 flex  items-center">
                 <Button>
                   Veiw Deatails <MoveUpRight size={14} className="ml-2" />
                 </Button>
@@ -79,7 +81,7 @@ const Hero = () => {
         className="w-full  absolute bottom-1"
         type="range"
         min={0}
-        max={3}
+        max={2}
         style={{
           color: 'blue',
           width: '100%',

@@ -37,17 +37,13 @@ section {
   }
 
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #fff;
     border-radius: 0px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #ffffff;
+    background: #f5b754;
     border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #008080;
   }
 }
 
@@ -73,6 +69,10 @@ section {
   box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
 }
 
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #f5b754;
+}
 /* car filter section */
 .car-info li {
   border: 2px solid #706f7b;
@@ -103,20 +103,45 @@ section {
   object-fit: cover;
 }
 
-input[type='range' i] {
-  background: #000;
-  color: #000;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
 }
 
-.slick-next {
-  right: 25px;
-  display: block;
-}
-
-.slick-next:before {
-  color: red;
-  font-size: 50px;
-}
-.slick-dots {
-  bottom: 25px;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

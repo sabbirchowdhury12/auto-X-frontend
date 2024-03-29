@@ -25,10 +25,10 @@ const CarCard = () => {
       {carData.map(car => (
         <div
           key={car.brand}
-          className="w-72 md:w-full shadow-lg p-4 text-sm rounded-lg"
+          className="w-72 md:w-full shadow-lg p-4 text-sm  rounded-lg border"
         >
           <div className="flex justify-between gap-4 items-center ">
-            <div className="flex gap-2 items-center border-2 p-1 rounded-full">
+            <div className="flex gap-2 items-center  p-1 rounded-full bg-primary">
               <Star />{' '}
               <p>
                 {' '}
@@ -52,28 +52,30 @@ const CarCard = () => {
             alt="car image"
             className="w-full h-52 my-4"
           />
-          <p className="font-bold  text-gray-600 mb-2">FORD FOCUS</p>
+          <p className="font-bold  text-secondary opacity-80 mb-2">
+            FORD FOCUS
+          </p>
           <div className="flex justify-between items-center ">
-            <p className="font-bold text-2xl ">{car.model} </p>
+            <p className="font-bold text-2xl text-secondary">{car.model} </p>
             <p>
-              <span className="text-lg font-bold">${car.price} </span>
-              <span>/ hour</span>
+              <span className="text-lg font-bold ">${car.price} </span>
+              <span className="text-primary">/ hour</span>
             </p>
           </div>
           <Separator />
           <div className=" flex items-center justify-between ">
             <p className="flex items-center gap-2">
               {' '}
-              <CarFront />
+              <CarFront className="text-primary" />
               {car.brand}
             </p>
 
             <p className="flex items-center gap-2">
               {' '}
-              <Sliders /> Manual
+              <Sliders className="text-primary" /> Manual
             </p>
             <p className="flex items-center gap-2">
-              <Gauge /> {car.fuelType}
+              <Gauge className="text-primary" /> {car.fuelType}
             </p>
             {/* <p className="flex items-center gap-2">
               <ArrowDownWideNarrow /> {car.vehicleType}

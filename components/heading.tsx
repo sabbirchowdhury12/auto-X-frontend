@@ -2,14 +2,24 @@ import React from 'react';
 
 type HeadingProps = {
   title: string;
-  description: string;
+  sub_title: string;
+  color?: string;
 };
 
-export const Heading: React.FC<HeadingProps> = ({ title, description }) => {
+const Heading = ({ title, sub_title, color }: HeadingProps) => {
   return (
-    <div>
-      <h2 className="text-xl md:text-2xl font-bold tracking-tight">{title}</h2>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
+    <>
+      {' '}
+      <h3 className="uppercase text-xs font-extrabold  text-primary text-center">
+        {title}
+      </h3>
+      <h2
+        className={`text-2xl text-secondary font-bold mt-4 uppercase w-[85%] mx-auto text-center text-${color}`}
+      >
+        {sub_title}
+      </h2>
+    </>
   );
 };
+
+export default Heading;

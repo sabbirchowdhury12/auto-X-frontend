@@ -1,22 +1,21 @@
 import mobileImage from '@/assets/download-image.png';
 import CustomImage from '@/components/customImage';
-import AppStoreIcon from '@/components/icons/appleStore';
-import PlayStoreIcon from '@/components/icons/playStore';
+import { Apple, Play } from 'lucide-react';
 
 const DownloadApp = () => {
   return (
     <section className="relative flex flex-col-reverse md:flex-row  justify-between items-center overflow-hidden ">
       <div className=" space-y-6">
-        <h1 className="text-center md:text-left text-2xl md:text-3xl lg:text-4xl font-extrabold">
+        <h1 className="text-center md:text-left text-2xl md:text-3xl lg:text-4xl font-extrabold text-secondary">
           Download our App to get most out of it
         </h1>
-        <p className="text-sm">
+        <p className="text-sm text-center md:text-start">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit non quo
           ullam alias error aspernatur molestias aut quam quis architecto
         </p>
-        <div className="flex justify-center md:justify-start gap-4">
-          <div className="flex gap-2 justify-center items-center p-2 h-14 rounded-md bg-black text-white cursor-pointer shadow-lg hover:opacity-90">
-            <PlayStoreIcon className="w-8 md:w-6 lg:w-8 h-8 md:h-6 lg:h-8" />
+        <div className="flex justify-center md:justify-start gap-4 ">
+          <div className="flex gap-2 justify-center items-center p-2 h-14 rounded-md bg-primary  cursor-pointer shadow-lg hover:opacity-90">
+            <Play />
             <div>
               <h3 className="uppercase text-[8px] lg:text-[10px]">Get it on</h3>
               <h1 className="text-sm md:text-md lg:text-lg font-semibold leading-tight">
@@ -25,8 +24,8 @@ const DownloadApp = () => {
             </div>
           </div>
 
-          <div className="flex gap-2 justify-center items-center p-2 h-14 rounded-md bg-black text-white cursor-pointer shadow-lg hover:opacity-90">
-            <AppStoreIcon className="w-8 md:w-6 lg:w-8 h-8 md:h-6 lg:h-8" />
+          <div className="flex gap-2 justify-center items-center p-2 h-14 rounded-md bg-secondary text-white cursor-pointer shadow-lg hover:opacity-90">
+            <Apple />
             <div>
               <h3 className="uppercase text-[8px] lg:text-[10px] ">
                 Download on the

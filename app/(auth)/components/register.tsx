@@ -109,7 +109,7 @@ const Register = () => {
               control={form.control}
               name="image"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="text-white ">
                   <FormControl>
                     <ImageUpload
                       value={field.value ? [field.value] : []}

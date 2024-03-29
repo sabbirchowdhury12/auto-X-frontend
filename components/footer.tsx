@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black text-white py-20">
+    <footer className="bg-secondary text-white py-20">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
         <div className="grid grid-cols-12">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-6 w-40 h-20">
@@ -42,18 +42,18 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid justify-center pt-6 lg:justify-between">
-          <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
+          <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6 text-primary">
             <span>Autox ©2024 All rights reserved</span>
           </div>
           <div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
             <div className="bg-slate-900 w-10 h-10 rounded-full flex justify-center items-center">
-              <Mail className="text-white" />
+              <Mail className="text-primary" />
             </div>
             <div className="bg-slate-900 w-10 h-10 rounded-full flex justify-center items-center">
-              <Globe className="text-white" />
+              <Globe className="text-primary" />
             </div>
             <div className="bg-slate-900 w-10 h-10 rounded-full flex justify-center items-center">
-              <MapPin className="text-white" />
+              <MapPin className="text-primary" />
             </div>
           </div>
         </div>

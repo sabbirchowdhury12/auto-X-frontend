@@ -1,6 +1,6 @@
 import Container from '@/components/container';
-import BookingForm from './components/bookingForm';
-import ContactSection from './components/bookingSection';
+import BookingSection from './components/bookingSection';
+import ContactSection from './components/contactSection';
 import BookingStep from './components/bookingStep';
 import DownloadApp from './components/downloadApp';
 import Hero from './components/hero';
@@ -15,7 +15,7 @@ const HomePage = () => {
         <BookingStep />
       </Container>
 
-      <BookingForm />
+      <BookingSection />
 
       <Container>
         <TopVehicle />

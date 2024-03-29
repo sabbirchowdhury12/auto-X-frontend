@@ -14,6 +14,7 @@ import CustomImage from '@/components/customImage';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Heading from './heading';
 
 const TopVehicle = () => {
   const Vehicles = [
@@ -65,33 +66,32 @@ const TopVehicle = () => {
 
   return (
     <section className="text-center  ">
-      <h3 className="uppercase text-sm font-extrabold opacity-90">
-        Meet The Fleet
-      </h3>
-      <h2 className="text-2xl md:text-3xl font-bold mt-2">
-        Our Most Popular Rental Vehicle
-      </h2>
+      <Heading
+        title="Meet The Fleet"
+        sub_title=" Our Most Popular Rental Vehicle"
+      />
 
       <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 gap-4 justify-between  my-6">
         <div className="col-span-1">
           {Vehicles.map((vehicle, index) => (
-            <Button
+            <div
               key={vehicle.id}
               onClick={() => handleChange(index)}
-              className={`flex flex-col justify-center items-center mb-4 text-center  font-bold py-4 px-10 w-full text-md text-white hover:bg-white hover:text-black ${index === activeBtn ? 'bg-white text-black' : 'bg-black border border-white'} transition-all`}
+              className={`flex flex-col justify-center rounded items-center mb-4 text-center  font-bold  p-6 w-full text-md  hover:bg-primary hover:text-black ${index === activeBtn ? 'bg-primary text-black cursor-pointer' : 'text-white bg-secondary'} transition-all`}
             >
               {vehicle.name}
-            </Button>
+            </div>
           ))}
         </div>
         <div className="col-span-2 lg:col-span-3 md:w-[90%] lg:w-2/3 mx-auto flex items-center justify-center">
           <ImageSlider urls={selectedVehicle.images} />
         </div>
         <div className="col-span-1 rounded-md p-2">
-          <h1 className="text-2xl font-extrabold bg-white text-black py-1">
-            ${selectedVehicle.price} <span className="text-lg"> / per day</span>
+          <h1 className="text-2xl font-extrabold bg-white text-secondary py-1">
+            ${selectedVehicle.price}{' '}
+            <span className="text-lg text-primary"> / per day</span>
           </h1>
-          <Table className="border">
+          <Table className="border mb-6">
             <TableBody>
               <TableRow>
                 <TableCell className="border font-bold">model</TableCell>
@@ -107,11 +107,8 @@ const TopVehicle = () => {
               </TableRow>
             </TableBody>
           </Table>
-          <Button
-            size={'lg'}
-            className="w-full mt-4 bg-white hover:bg-black text-black hover:text-white hover:border hover:border-white shadow-sm shadow-white rounded-none"
-          >
-            BOOK NOW
+          <Button className="" size={'lg'}>
+            Book Now
           </Button>
         </div>
       </div>
@@ -170,12 +167,7 @@ const TopVehicle = () => {
               </TableRow>
             </TableBody>
           </Table>
-          <Button
-            size={'sm'}
-            className="w-[45%] mx-auto mt-4 bg-black hover:bg-white text-white hover:text-black border border-white shadow-sm shadow-white"
-          >
-            BOOK NOW
-          </Button>
+          <Button>BOOK NOW</Button>
         </div>
       </div>
     </section>
