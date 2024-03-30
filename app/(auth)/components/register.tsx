@@ -1,5 +1,7 @@
 'use client';
 
+import logo from '@/assets/logo.png';
+import CustomImage from '@/components/customImage';
 import ImageUpload from '@/components/imageUpload';
 import { Button } from '@/components/ui/button';
 import {
@@ -97,6 +99,14 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-screen">
       <Card>
         <CardHeader className="space-y-1 text-center">
+          <Link href={'/'}>
+            <CustomImage
+              src={logo}
+              alt="logo"
+              priority={true}
+              className="w-24 md:w-32 h-10 md:h-12"
+            />
+          </Link>
           <CardTitle className="text-2xl ">Register</CardTitle>
           <CardDescription>Create an account</CardDescription>
         </CardHeader>

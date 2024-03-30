@@ -1,7 +1,7 @@
 'use client';
 
 import CustomImage from '@/components/customImage';
-import { Heading } from '@/components/heading';
+import DashboardHeading from '@/components/dashboardHeading';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useGetProfileQuery } from '@/redux/api/profileApi';
@@ -15,7 +15,10 @@ const ProfileCard = () => {
   return (
     <div className="p-4">
       <div className="flex items-center justify-between">
-        <Heading title="Your Profile" description="Manage your profile" />
+        <DashboardHeading
+          title="Your Profile"
+          description="Manage your profile"
+        />
         <Link href={`/account/edit`}>
           <Button size={'sm'}>
             <Plus className="mr-2 h-4 w-4" /> Edit Profile
@@ -44,7 +47,10 @@ const ProfileCard = () => {
             <div className="space-y-2">
               <p>Gender : {data?.gender ? data?.gender : 'N/A'}</p>
               <p>
-                dateOfBirth : {data?.dateOfBirth ? data?.dateOfBirth : 'N/A'}
+                dateOfBirth :{' '}
+                {data?.dateOfBirth
+                  ? new Date(data?.dateOfBirth).toISOString().split('T')[0]
+                  : 'N/A'}
               </p>
               <p>
                 emergContact : {data?.emergContact ? data?.emergContact : 'N/A'}

@@ -107,7 +107,7 @@ const MonthlyBookingForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-md  mt-4 ">
+    <div className="bg-white rounded-md  mt-4 p-2">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

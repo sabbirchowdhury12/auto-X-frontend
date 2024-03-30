@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -19,15 +20,20 @@ import {
 } from '@/components/ui/select';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Heading } from '@/components/heading';
 import ImageUpload from '@/components/imageUpload';
 import { Separator } from '@/components/ui/separator';
-import { useGetProfileQuery } from '@/redux/api/profileApi';
+import {
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+} from '@/redux/api/profileApi';
 import { getClientUserInfo } from '@/services/auth.service';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import DashboardHeading from '@/components/dashboardHeading';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
   name: z.string({ required_error: 'Name is required' }),
@@ -46,6 +52,8 @@ const ProfileForm = () => {
 
   const { id } = getClientUserInfo();
   const { data } = useGetProfileQuery(id);
+  const [updateProfile] = useUpdateProfileMutation();
+  const router = useRouter();
 
   const defaultValues = {
     name: data?.name,
@@ -53,7 +61,7 @@ const ProfileForm = () => {
     address: data?.address,
     contactNo: data?.contactNo,
     gender: data?.gender,
-    dateOfBirth: data?.dateOfBirth,
+    dateOfBirth: new Date(data?.dateOfBirth).toISOString().split('T')[0],
     emergContact: data?.emergContact,
   };
   const form = useForm<ProfileFormValues>({
@@ -62,14 +70,25 @@ const ProfileForm = () => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  function onSubmit(values: ProfileFormValues) {
-    setLoading(false);
+  async function onSubmit(data: ProfileFormValues) {
+    setLoading(true);
+    data.dateOfBirth = new Date(data.dateOfBirth).toISOString();
+    const res: any = await updateProfile({ id, data });
+    console.log(res);
+    console.log(data);
+    if (res?.data?.id) {
+      console.log('hi');
+      router.push(`/account`);
+      toast.success('Profile updated successfully');
+    } else if (res?.error) {
+      toast.error(res?.error?.message);
+    }
 
     setLoading(false);
   }
   return (
     <div className="p-2 md:p-6">
-      <Heading
+      <DashboardHeading
         title="Edit Profile"
         description="Edit your profile information"
       />
@@ -83,7 +102,7 @@ const ProfileForm = () => {
             control={form.control}
             name="image"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="text-white hover:text-black ">
                 <FormControl>
                   <ImageUpload
                     value={field.value ? [field.value] : []}
@@ -141,8 +160,8 @@ const ProfileForm = () => {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue
-                            placeholder="select status"
-                            defaultValue={'Available'}
+                            placeholder="select Gender"
+                            // defaultValue={'Available'}
                           />
                         </SelectTrigger>
                       </FormControl>
@@ -165,11 +184,7 @@ const ProfileForm = () => {
                 <FormItem>
                   <FormLabel>Your birthday</FormLabel>
                   <FormControl>
-                    <Input
-                      type="datetime"
-                      placeholder="Date of birth"
-                      {...field}
-                    />
+                    <Input type="date" placeholder="Date of birth" {...field} />
                   </FormControl>
 
                   <FormMessage />
@@ -206,7 +221,7 @@ const ProfileForm = () => {
               )}
             />
           </div>
-          <Button disabled={loading} type="submit">
+          <Button disabled={loading} type="submit" size={'lg'}>
             {loading ? (
               <>
                 {'Save changes'}

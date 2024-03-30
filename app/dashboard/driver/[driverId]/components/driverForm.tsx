@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
+import DashboardHeading from '@/components/dashboardHeading';
 import ImageUpload from '@/components/imageUpload';
 import { Button } from '@/components/ui/button';
 import {
@@ -31,7 +32,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
-import { Heading } from '../../../../../components/heading';
 
 // const initialData = null;
 //dummy data
@@ -126,7 +126,7 @@ const DriverForm = ({ initialData }: any) => {
   };
   return (
     <div className="m-4">
-      <Heading title={title} description={description} />
+      <DashboardHeading title={title} description={description} />
       <Separator />
       <Form {...form}>
         <form

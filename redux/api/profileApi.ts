@@ -8,6 +8,13 @@ export const profileApi = baseApi.injectEndpoints({
         method: 'GET',
       }),
     }),
+    updateProfile: build.mutation({
+      query: ({ id, data }) => ({
+        url: `/profiles/${id}`,
+        method: 'PATCH',
+        data: data,
+      }),
+    }),
 
     deleteProfile: build.mutation({
       query: id => ({
@@ -18,4 +25,8 @@ export const profileApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetProfileQuery, useDeleteProfileMutation } = profileApi;
+export const {
+  useGetProfileQuery,
+  useDeleteProfileMutation,
+  useUpdateProfileMutation,
+} = profileApi;

@@ -42,7 +42,7 @@ const Hero = () => {
     beforeChange: (current: number, next: number) => setSlideIndex(next),
   };
   return (
-    <div className="slider-container relative cursor-pointer ">
+    <div className="slider-container relative cursor-pointer overflow-hidden ">
       <Slider ref={sliderRef} {...settings}>
         {data.map((slider, ind) => (
           <div key={ind} className="relative lg:h-screen">

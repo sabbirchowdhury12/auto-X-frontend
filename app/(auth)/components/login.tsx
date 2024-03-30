@@ -80,12 +80,14 @@ const Login = () => {
       <div className="flex justify-center items-center min-h-screen">
         <Card>
           <CardHeader className="space-y-1 text-center">
-            <CustomImage
-              src={logo}
-              alt="logo"
-              priority={true}
-              className="w-24 md:w-32 h-10 md:h-12"
-            />
+            <Link href={'/'}>
+              <CustomImage
+                src={logo}
+                alt="logo"
+                priority={true}
+                className="w-24 md:w-32 h-10 md:h-12"
+              />
+            </Link>
             <CardTitle className="text-2xl ">Login Account</CardTitle>
             <CardDescription>Enter your email & password.</CardDescription>
           </CardHeader>

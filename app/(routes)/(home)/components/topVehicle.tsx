@@ -15,6 +15,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Heading from './heading';
+import Link from 'next/link';
 
 const TopVehicle = () => {
   const Vehicles = [
@@ -91,7 +92,7 @@ const TopVehicle = () => {
             ${selectedVehicle.price}{' '}
             <span className="text-lg text-primary"> / per day</span>
           </h1>
-          <Table className="border mb-6">
+          <Table className="border ">
             <TableBody>
               <TableRow>
                 <TableCell className="border font-bold">model</TableCell>
@@ -107,9 +108,11 @@ const TopVehicle = () => {
               </TableRow>
             </TableBody>
           </Table>
-          <Button className="" size={'lg'}>
-            Book Now
-          </Button>
+          <Link href={'/reservations'}>
+            <Button className="mt-4" size={'lg'}>
+              Book Now
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -167,7 +170,11 @@ const TopVehicle = () => {
               </TableRow>
             </TableBody>
           </Table>
-          <Button>BOOK NOW</Button>
+          <Link href={'/reservations'}>
+            <Button className="mt-4" size={'lg'}>
+              Book Now
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

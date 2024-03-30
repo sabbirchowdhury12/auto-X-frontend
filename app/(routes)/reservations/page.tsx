@@ -12,7 +12,6 @@ import AccordinCheckBox from './componetns/accordinCheckBox';
 import CarCard from './componetns/carCard';
 import { Slider } from './componetns/priceRange';
 import CarSlider from './componetns/carSlider';
-import BookingPage from '../(home)/components/booking';
 import MonthlyBookingForm from '@/components/forms/monthlyBookingForm';
 
 const rentTypeOption = ['Hourly', 'Daily', 'Weekly', 'Monthly'];
@@ -309,7 +308,7 @@ const ReservationsPage = () => {
               />
             </div>
 
-            <div className="car-result-site  overflow-x-scroll no-scroll md:overflow-x-hidden md:overflow-y-scroll flex flex-row md:flex-col md:h-screen gap-4">
+            <div className="car-result-site  overflow-x-scroll no-scroll md:overflow-x-hidden md:overflow-y-scroll flex flex-row md:flex-col md:h-screen gap-4 my-8 md:my-0">
               {carData.map((car, ind) => (
                 <CarCard key={ind} />
               ))}
