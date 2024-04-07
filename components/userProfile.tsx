@@ -34,6 +34,7 @@ export default function UserProfile() {
 
   const handleLogout = () => {
     removeUserInfo(authKey);
+    localStorage.removeItem(authKey);
     router.refresh();
     router.push('/');
     toast.success('Logout successfully');

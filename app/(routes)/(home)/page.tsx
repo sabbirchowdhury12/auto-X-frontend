@@ -5,7 +5,6 @@ import BookingStep from './components/bookingStep';
 import DownloadApp from './components/downloadApp';
 import Hero from './components/hero';
 import TopVehicle from './components/topVehicle';
-import VedioSection from './components/vedioSection';
 
 const HomePage = () => {
   return (
@@ -14,14 +13,12 @@ const HomePage = () => {
       <Container>
         <BookingStep />
       </Container>
-
       <BookingSection />
-
       <Container>
         <TopVehicle />
       </Container>
       <ContactSection />
-      <VedioSection />
+      {/* <VedioSection /> */}
       <Container>
         <DownloadApp />
       </Container>
