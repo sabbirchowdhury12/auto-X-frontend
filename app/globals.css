@@ -102,6 +102,13 @@ section {
   object-fit: cover;
 }
 
+/* //reservation*/
+.reservation li {
+  list-style: none;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

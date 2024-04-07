@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
@@ -37,7 +38,7 @@ import {
 import { times } from '@/constants/timeList';
 import { cn } from '@/lib/utils';
 import { useCreateBookingMutation } from '@/redux/api/bookingApi';
-import { useGetAllVehicleQuery } from '@/redux/api/vehicleApi';
+import { useGetAvailableVehicleQuery } from '@/redux/api/vehicleApi';
 import { getClientUserInfo } from '@/services/auth.service';
 import { CalendarIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -47,9 +48,7 @@ const formSchema = z.object({
   pickUpLocation: z.string({ required_error: '' }),
   pickUpTime: z.string({ required_error: '' }),
   dropOffLocation: z.string({ required_error: '' }),
-  dropOffTime: z.string({ required_error: '' }),
-  vehicle: z.string({ required_error: '' }),
-  customizedOptions: z.array(z.string().optional()).optional(),
+  vehicle: z.string({ required_error: '' }).optional(),
   pickUpDate: z
     .date({ required_error: '' })
     .refine(
@@ -66,14 +65,14 @@ const formSchema = z.object({
 
 type monthlyBookingFormValues = z.infer<typeof formSchema>;
 
-const MonthlyBookingForm = () => {
+const MonthlyBookingForm = ({ selectedCar }: any) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const user = getClientUserInfo();
 
   const [createBooking] = useCreateBookingMutation();
-  const { data: vehicles } = useGetAllVehicleQuery({});
+  const { data: vehicles } = useGetAvailableVehicleQuery({});
 
   const form = useForm<monthlyBookingFormValues>({
     resolver: zodResolver(formSchema),
@@ -87,16 +86,15 @@ const MonthlyBookingForm = () => {
       returnDateTime: new Date(data.dropOffDate).toISOString(),
       pickUpLocation: data.pickUpLocation,
       dropOffLocation: data.dropOffLocation,
-      rentType: 'Monthly',
-      // driverId: '2849aebb-3828-4d53-8d1f-d8da24c616d3',
-      vehicleId: '3557338a-6652-4a92-8f7d-db70a9612967',
+      pickUpTime: data.pickUpTime,
+      vehicleId: selectedCar ? selectedCar.id : data.vehicle,
       userId: user.id,
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const res: any = await createBooking(bookingData);
 
     if (res?.data?.id) {
+      form.reset();
       router.push(`/`);
       toast.success('Vehicle booked successfully');
     } else if (res?.error) {
@@ -151,7 +149,7 @@ const MonthlyBookingForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
             <FormField
               control={form.control}
-              name="dropOffDate"
+              name="pickUpDate"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <Popover>
@@ -167,7 +165,7 @@ const MonthlyBookingForm = () => {
                           {field.value ? (
                             format(field.value, 'PPP')
                           ) : (
-                            <span>Return date</span>
+                            <span>Pick up date</span>
                           )}
                           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
@@ -178,9 +176,7 @@ const MonthlyBookingForm = () => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={date =>
-                          date > new Date() || date < new Date('1900-01-01')
-                        }
+                        disabled={date => date < new Date('1900-01-01')}
                         initialFocus
                       />
                     </PopoverContent>
@@ -220,9 +216,7 @@ const MonthlyBookingForm = () => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={date =>
-                          date > new Date() || date < new Date('1900-01-01')
-                        }
+                        disabled={date => date < new Date('1900-01-01')}
                         initialFocus
                       />
                     </PopoverContent>
@@ -264,37 +258,56 @@ const MonthlyBookingForm = () => {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="vehicle"
-              render={({ field }) => (
-                <FormItem>
-                  <Select
-                    disabled={loading}
-                    onValueChange={field.onChange}
-                    value={field.value}
-                    defaultValue={field.value}
-                  >
+            {selectedCar ? (
+              <FormField
+                control={form.control}
+                name="vehicle"
+                render={({ field }) => (
+                  <FormItem>
                     <FormControl>
-                      <SelectTrigger>
-                        <SelectValue
-                          defaultValue={field.value}
-                          placeholder="Select a vehicle"
-                        />
-                      </SelectTrigger>
+                      <Input
+                        disabled={selectedCar}
+                        {...field}
+                        defaultValue={selectedCar?.model}
+                      />
                     </FormControl>
-                    <SelectContent>
-                      {vehicles?.map((vehicle: any) => (
-                        <SelectItem key={vehicle.id} value={vehicle.id}>
-                          {vehicle.model}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            ) : (
+              <FormField
+                control={form.control}
+                name="vehicle"
+                render={({ field }) => (
+                  <FormItem>
+                    <Select
+                      disabled={loading}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue
+                            defaultValue={field.value}
+                            placeholder="Select a vehicle"
+                          />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {vehicles?.map((vehicle: any) => (
+                          <SelectItem key={vehicle.id} value={vehicle.id}>
+                            {vehicle.model}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
           </div>
           <div className="flex justify-end mt-6">
             <Button

@@ -6,14 +6,12 @@ import { CellAction } from './cell-action';
 export type Booking = {
   id?: string;
   bookingId: string;
-  pickUpDate: string;
+  pickUpDateTime: string;
   pickUpTime: string;
-  dropOffDate: string;
-  dropOffTime: string;
-  pickUpLocation: string;
+  returnDateTime: string;
   dropOffLocation: string;
-  rentType: string;
   bookingStatus: string;
+  paymentStatus: string;
   createdAt?: string;
 };
 export const columns: ColumnDef<Booking>[] = [
@@ -23,12 +21,7 @@ export const columns: ColumnDef<Booking>[] = [
       <DataTableColumnHeader column={column} title="Id" />
     ),
   },
-  {
-    accessorKey: 'rentType',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Rent type" />
-    ),
-  },
+
   {
     accessorKey: 'pickUpLocation',
     header: ({ column }) => (
@@ -42,35 +35,30 @@ export const columns: ColumnDef<Booking>[] = [
     ),
   },
   {
-    accessorKey: 'pickUpDate',
+    accessorKey: 'pickUpDateTime',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Pick date" />
     ),
   },
-  {
-    accessorKey: 'pickUpTime',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Pick time" />
-    ),
-  },
-  {
-    accessorKey: 'dropOffDate',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Drop date" />
-    ),
-  },
-  {
-    accessorKey: 'dropOffTime',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Drop time" />
-    ),
-  },
-  {
-    accessorKey: 'bookingStatus',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
-    ),
-  },
+  // {
+  //   accessorKey: 'pickUpTime',
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Pick time" />
+  //   ),
+  // },
+  // {
+  //   accessorKey: 'returnDateTime',
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Drop date" />
+  //   ),
+  // },
+
+  // {
+  //   accessorKey: 'bookingStatus',
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Status" />
+  //   ),
+  // },
 
   {
     accessorKey: 'Actions',

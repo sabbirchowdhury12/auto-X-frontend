@@ -1,88 +1,66 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CustomImage from '@/components/customImage';
 import { Separator } from '@/components/ui/separator';
 import { CarFront, Gauge, PersonStanding, Sliders, Star } from 'lucide-react';
 
-const carData = [
-  {
-    rating: 4.8,
-    status: 'available now',
-    minitue: '120m',
-    model: ' 15 Eco Blue ',
-    price: 24.56,
-    mileage: 545,
-    fuelType: 'Diesel',
-    location: 'Bangladesh',
-    brand: 'Audi 215',
-    image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2FyfGVufDB8fDB8fHww',
-    vehicleType: 'XL',
-    passengerCapacity: 5,
-  },
-];
-const CarCard = () => {
+const CarCard = ({ car, setSelectedCar }: any) => {
   return (
-    <div className=" ">
-      {carData.map(car => (
-        <div
-          key={car.brand}
-          className="w-72 md:w-full shadow-lg p-4 text-sm  rounded-lg border"
-        >
-          <div className="flex justify-between gap-4 items-center ">
-            <div className="flex gap-2 items-center  p-1 rounded-full bg-primary">
-              <Star />{' '}
-              <p>
-                {' '}
-                <span className="font-bold">{car.rating}</span>(106)
-              </p>
-            </div>
-            {/* <p className="  p-1.5 rounded-full text-center bg-black text-white">
+    <div
+      className=" md:w-full shadow-lg p-4 text-sm  rounded-lg border"
+      onClick={() => setSelectedCar(car)}
+    >
+      <div className="flex justify-between gap-4 items-center ">
+        <div className="flex gap-2 items-center  p-1 rounded-full bg-primary">
+          <Star />{' '}
+          <p>
+            {' '}
+            <span className="font-bold">{car?.status}</span>
+          </p>
+        </div>
+        {/* <p className="  p-1.5 rounded-full text-center bg-black text-white">
               {car.status}
             </p> */}
-            <div className=" flex gap-2 items-center border-2 p-1 rounded-full">
-              {' '}
-              <PersonStanding />
-              <p>
-                <span className="font-bold">{car.mileage}</span>m(50 min)
-              </p>
-            </div>
-            {/* <Heart className="ml-14" /> */}
-          </div>
-          <CustomImage
-            src={car.image}
-            alt="car image"
-            className="w-full h-52 my-4"
-          />
-          <p className="font-bold  text-secondary opacity-80 mb-2">
-            FORD FOCUS
+        <div className=" flex gap-2 items-center border-2 p-1 rounded-full">
+          {' '}
+          <PersonStanding />
+          <p>
+            <span className="font-bold">{car.mileage}</span>m(60 min)
           </p>
-          <div className="flex justify-between items-center ">
-            <p className="font-bold text-2xl text-secondary">{car.model} </p>
-            <p>
-              <span className="text-lg font-bold ">${car.price} </span>
-              <span className="text-primary">/ hour</span>
-            </p>
-          </div>
-          <Separator />
-          <div className=" flex items-center justify-between ">
-            <p className="flex items-center gap-2">
-              {' '}
-              <CarFront className="text-primary" />
-              {car.brand}
-            </p>
+        </div>
+        {/* <Heart className="ml-14" /> */}
+      </div>
+      <CustomImage
+        src={car.images[0]}
+        alt="car image"
+        className="w-full h-52 my-4"
+      />
+      <p className="font-bold  text-secondary opacity-80 mb-2">{car?.brand}</p>
+      <div className="flex justify-between items-center ">
+        <p className="font-bold text-2xl text-secondary">{car?.model} </p>
+        <p>
+          <span className="text-lg font-bold ">${car?.rentalRate} </span>
+          <span className="text-primary">/ hour</span>
+        </p>
+      </div>
+      <Separator />
+      <div className=" flex items-center justify-between ">
+        <p className="flex items-center gap-2">
+          {' '}
+          <CarFront className="text-primary" />
+          {car?.vehicleType}
+        </p>
 
-            <p className="flex items-center gap-2">
-              {' '}
-              <Sliders className="text-primary" /> Manual
-            </p>
-            <p className="flex items-center gap-2">
-              <Gauge className="text-primary" /> {car.fuelType}
-            </p>
-            {/* <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2">
+          {' '}
+          <Sliders className="text-primary" /> Manual
+        </p>
+        <p className="flex items-center gap-2">
+          <Gauge className="text-primary" /> {car.fuelType}
+        </p>
+        {/* <p className="flex items-center gap-2">
               <ArrowDownWideNarrow /> {car.vehicleType}
             </p> */}
-          </div>
-        </div>
-      ))}
+      </div>
     </div>
   );
 };

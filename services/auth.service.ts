@@ -11,6 +11,11 @@ import {
 } from '@/utils/cookiesStorage';
 
 export const storeUserInfo = (accessToken: string) => {
+  const decodedData = decodedToken(accessToken);
+
+  const serializedData = JSON.stringify(decodedData);
+  localStorage.setItem(authKey, serializedData);
+
   return setToCookies(authKey, accessToken);
 };
 

@@ -1,11 +1,10 @@
+'use client';
 import { BookingClient } from './components/client';
 
 const ManageBookingPage = () => {
   return (
     <div>
-      <div>
-        <BookingClient />
-      </div>
+      <BookingClient />
     </div>
   );
 };

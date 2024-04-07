@@ -102,6 +102,7 @@ const DriverForm = ({ initialData }: any) => {
     if (initialData) {
       const id = initialData.id;
       data.licenseExpire = new Date(data.licenseExpire).toISOString();
+
       const res: any = await updateDriver({ id, data });
       console.log(res);
       if (res?.data?.id) {
@@ -112,6 +113,7 @@ const DriverForm = ({ initialData }: any) => {
       }
     } else {
       data.licenseExpire = new Date(data.licenseExpire).toISOString();
+      console.log(data);
       const res: any = await createDriver(data);
       console.log(res);
       if (res?.data?.id) {

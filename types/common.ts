@@ -59,3 +59,42 @@ export type User = {
   id: string;
   role: string;
 };
+
+export type IDriverProps = {
+  id: string;
+  driverId: string;
+  licenseNo: string;
+  licenseExpire: string;
+  nidNo: string;
+  status: string;
+  userId: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type IVehicleProps = {
+  id: string;
+  vehicleId: string;
+  model: string;
+  mileage: number;
+  color: string;
+  images: string[];
+  overview: string;
+  basePrice: number;
+  fuelType: string;
+  passengerCapacity: number;
+  location: string;
+  plateNo: string;
+  chassisNo: string;
+  status: string;
+  owner: string;
+  vehicleType: string;
+  brand: string;
+  year: string;
+  registrationNumber: string;
+  rentalRate: number;
+  driverId: string;
+  createdAt: string;
+  updatedAt: string;
+  driver: IDriverProps;
+};

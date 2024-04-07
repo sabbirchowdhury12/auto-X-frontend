@@ -12,8 +12,29 @@ export const vehicleApi = baseApi.injectEndpoints({
     }),
 
     getAllVehicle: build.query({
+      query: ({
+        searchValue,
+        brandValue,
+        fuelType,
+        carType,
+        status,
+        color,
+      }) => ({
+        url: `/vehicles?searchTerm=${searchValue}&brand=${brandValue}&fuelType=${fuelType}&carType=${carType}&status=${status}&color=${color}`,
+        method: 'GET',
+      }),
+      providesTags: ['vehicle'],
+    }),
+    getAvailableVehicle: build.query({
       query: () => ({
-        url: '/vehicles',
+        url: `/vehicles/available`,
+        method: 'GET',
+      }),
+      providesTags: ['vehicle'],
+    }),
+    getAllDashboardVehicle: build.query({
+      query: () => ({
+        url: `/vehicles/dashboard`,
         method: 'GET',
       }),
       providesTags: ['vehicle'],
@@ -51,4 +72,6 @@ export const {
   useGetSingleVehicleQuery,
   useUpdateVehicleMutation,
   useDeleteVehicleMutation,
+  useGetAvailableVehicleQuery,
+  useGetAllDashboardVehicleQuery,
 } = vehicleApi;

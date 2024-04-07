@@ -23,6 +23,7 @@ type CellActionProps = {
 };
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
+  console.log(data);
   const router = useRouter();
 
   const [loading, isLoading] = useState(false);
@@ -52,7 +53,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuItem
-            onClick={() => router.push(`/dashboard/booking/details`)}
+            onClick={() =>
+              router.push(`/dashboard/booking/details/${data?.id}`)
+            }
           >
             <FileText className="mr-2 h-4 w-4" /> Details
           </DropdownMenuItem>

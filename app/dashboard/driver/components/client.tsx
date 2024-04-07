@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { Heading } from '@/components/heading';
+import DashboardHeading from '@/components/dashboardHeading';
 import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/ui/dataTable';
 import { Separator } from '@/components/ui/separator';
@@ -9,7 +9,7 @@ import { useGetAllDriverQuery } from '@/redux/api/driverApi';
 import { formatDate } from 'date-fns';
 import { Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import Loading from '../loading';
+import Loading from '../../booking/loading';
 import { Driver, columns } from './columns';
 
 // const data = [
@@ -125,11 +125,14 @@ export const DriverClient = () => {
   return (
     <div className="m-4">
       <div className="flex items-center justify-between">
-        <Heading
+        <DashboardHeading
           title={`Driver (${formattedDrivers?.length})`}
           description="Manage your drivers"
         />
-        <Button onClick={() => router.push(`/dashboard/driver/new`)}>
+        <Button
+          size={'sm'}
+          onClick={() => router.push(`/dashboard/driver/new`)}
+        >
           <Plus className="mr-2 h-4 w-4 " /> Add New
         </Button>
       </div>

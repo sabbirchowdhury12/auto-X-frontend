@@ -5,20 +5,20 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
-import { TooltipProvider } from '@/components/ui/tooltip';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import React, { useState } from 'react';
-
-import { buttonVariants } from '@/components/ui/button';
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import React, { useState } from 'react';
+
+import { cn } from '@/lib/utils';
 import { TSideNavItemsProps } from '@/types/common';
 import { setCookie } from 'cookies-next';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { buttonVariants } from './ui/button';
 
 type SideBarProps = {
   children: React.ReactNode;
@@ -36,11 +36,11 @@ const SideBar = ({ children, sideNavItems }: SideBarProps) => {
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
         direction="horizontal"
-        className="h-full min-h-[95vh] items-stretch relative"
+        className="h-full min-h-screen items-stretch relative"
       >
         <ResizablePanel
-          defaultSize={defaultLayout[0]}
-          collapsedSize={4}
+          defaultSize={defaultLayout[2]}
+          collapsedSize={3}
           collapsible={true}
           minSize={15}
           onCollapse={() => {
@@ -131,7 +131,8 @@ const SideBar = ({ children, sideNavItems }: SideBarProps) => {
         <ResizablePanel
           defaultSize={defaultLayout[1]}
           minSize={30}
-          className="p-4 rounded-lg"
+          className="p-4 rounded-lg 
+          "
         >
           {children}
         </ResizablePanel>

@@ -14,7 +14,7 @@ import CustomImage from './customImage';
 import { NavItems } from './navItems';
 import UserProfile from './userProfile';
 
-const NavBar = async () => {
+const NavBar = () => {
   const handleScroll = () => {
     const section = document.querySelector('.nav');
     if (section) {

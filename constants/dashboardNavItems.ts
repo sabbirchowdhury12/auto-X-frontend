@@ -2,7 +2,7 @@ import { TSideNavItemsProps } from '@/types/common';
 import { Car, KanbanSquare, LineChart, User } from 'lucide-react';
 import { USER_ROLE } from './role';
 
-const dashboardNavItems = ({ role }: { role: string }) => {
+const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
   const defaultItems: TSideNavItemsProps = [
     {
       title: 'Overview',
