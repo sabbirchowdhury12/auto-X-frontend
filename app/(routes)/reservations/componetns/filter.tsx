@@ -6,7 +6,7 @@ import { Switch } from '@/components/ui/switch';
 import { Search } from 'lucide-react';
 import AccordinCheckBox from './accordinCheckBox';
 
-const vehicleColor = ['Red', 'Blue', 'White', 'Green'];
+const vehicleColor = ['Red', 'Blue'];
 const carBrands = [
   {
     value: 'Toyota',
@@ -18,23 +18,23 @@ const carBrands = [
     label: 'Audi',
   },
 
-  {
-    value: 'BMW',
-    label: 'BMW',
-  },
+  // {
+  //   value: 'BMW',
+  //   label: 'BMW',
+  // },
 
   {
     value: 'Nissan',
     label: 'Nissan',
   },
-  {
-    value: 'Mercedes',
-    label: 'Mercedes',
-  },
+  // {
+  //   value: 'Mercedes',
+  //   label: 'Mercedes',
+  // },
 ];
 
 const carTypes = ['M', 'L', 'XL', 'XXL'];
-const fuelTypes = ['LPG', 'CNG', 'Petrol', 'Diesel'];
+const fuelTypes = ['CNG', 'LPG', 'Petrol', 'Diesel'];
 
 const Filter = ({
   setSearchValue,
@@ -69,7 +69,7 @@ const Filter = ({
             {vehicleColor.map(option => (
               <div
                 onClick={() => setColor(option)}
-                className={`flex text-secondary   border-2 border-primary px-2 py-1 rounded  font-bold text-sm cursor-pointer ${color === option ? 'bg-primary ' : 'text-gray-700'}`}
+                className={`flex text-secondary flex-1 border-2 justify-center border-primary px-2 py-1 rounded  font-bold text-sm cursor-pointer ${color === option ? 'bg-primary ' : 'text-gray-700'}`}
                 key={option}
               >
                 {option}

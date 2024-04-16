@@ -97,14 +97,13 @@ const DriverForm = ({ initialData }: any) => {
     defaultValues: defaultValues,
   });
   const onSubmit = async (data: DriverFormValues) => {
-    console.log(data);
     setLoading(true);
     if (initialData) {
       const id = initialData.id;
       data.licenseExpire = new Date(data.licenseExpire).toISOString();
 
       const res: any = await updateDriver({ id, data });
-      console.log(res);
+
       if (res?.data?.id) {
         router.push(`/dashboard/driver`);
         toast.success('Driver updated successfully');
@@ -113,9 +112,9 @@ const DriverForm = ({ initialData }: any) => {
       }
     } else {
       data.licenseExpire = new Date(data.licenseExpire).toISOString();
-      console.log(data);
+
       const res: any = await createDriver(data);
-      console.log(res);
+
       if (res?.data?.id) {
         router.push(`/dashboard/driver`);
         toast.success('Driver created successfully');

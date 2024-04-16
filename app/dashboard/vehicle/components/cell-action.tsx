@@ -34,7 +34,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onDelete = async () => {
     setLoading(true);
-    console.log(data?.id);
+
     const res: any = await deleteVehicle(data?.id);
 
     if (res?.data?.id) {

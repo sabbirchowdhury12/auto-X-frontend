@@ -12,59 +12,6 @@ import Link from 'next/link';
 import Loading from '../loading';
 import { Vehicle, columns } from './columns';
 
-const data = [
-  {
-    id: '01',
-    vehicleId: 'ABC123',
-    model: 'Toyota Corolla',
-    mileage: 5000.5,
-    color: 'Blue',
-    images: [
-      'https://duruthemes.com/demo/html/renax/light/img/slider/3.jpg',
-      'https://duruthemes.com/demo/html/renax/light/img/slider/3.jpg',
-    ],
-    overview: 'This is a well-maintained vehicle.',
-    basePrice: 20000,
-    fuelType: 'Petrol',
-    passengerCapacity: 5,
-    location: 'New York',
-    plateNo: 'XYZ456',
-    chassisNo: '1234567890',
-    status: 'Available',
-    owner: 'John Doe',
-    vehicleType: 'Sedan',
-    brand: 'Toyota',
-    driverId: '1',
-    createdAt: '2024-02-05T12:00:00Z',
-    updatedAt: '2024-02-05T12:00:00Z',
-  },
-  {
-    id: '02',
-    vehicleId: 'DEF456',
-    model: 'Honda Civic',
-    mileage: 3000.8,
-    color: 'Red',
-    images: [
-      'https://duruthemes.com/demo/html/renax/light/img/slider/3.jpg',
-      'https://duruthemes.com/demo/html/renax/light/img/slider/3.jpg',
-    ],
-    overview: 'This vehicle is in excellent condition.',
-    basePrice: 18000,
-    fuelType: 'Diesel',
-    passengerCapacity: 4,
-    location: 'Los Angeles',
-    plateNo: 'ABC789',
-    chassisNo: '0987654321',
-    status: 'Available',
-    owner: 'Jane Smith',
-    vehicleType: 'Sedan',
-    brand: 'Honda',
-    driverId: '2',
-    createdAt: '2024-02-04T10:00:00Z',
-    updatedAt: '2024-02-04T15:30:00Z',
-  },
-];
-
 export const VehicleClient = () => {
   const { data: vehicles, isLoading } = useGetAllDashboardVehicleQuery({});
   if (isLoading) {

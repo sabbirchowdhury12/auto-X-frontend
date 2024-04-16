@@ -29,13 +29,18 @@ const AccordinCheckBox: React.FC<IAccordinCheckBoxProps> = ({
         </AccordionTrigger>
         <AccordionContent>
           <div className="grid grid-cols-2 gap-y-4">
-            {data.map((type: string) => (
+            {data.map((type: string, ind: number) => (
               <div
                 onClick={() => setValue(type)}
                 key={type}
                 className="flex items-center space-x-2"
               >
-                <Checkbox id={type} name={type} checked={value === type} />
+                <Checkbox
+                  disabled={ind == 0 || ind == 3}
+                  id={type}
+                  name={type}
+                  checked={value === type}
+                />
                 <Label htmlFor={type}>{type}</Label>
               </div>
             ))}

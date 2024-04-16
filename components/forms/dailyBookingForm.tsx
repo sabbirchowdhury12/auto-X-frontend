@@ -103,7 +103,7 @@ const DailyBookingForm = () => {
       rentType: 'Daily',
       // driverId: '2849aebb-3828-4d53-8d1f-d8da24c616d3',
       vehicleId: '3557338a-6652-4a92-8f7d-db70a9612967',
-      userId: user.id,
+      userId: user?.id,
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

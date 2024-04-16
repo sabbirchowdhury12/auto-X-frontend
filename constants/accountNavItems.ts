@@ -1,5 +1,5 @@
 import { TSideNavItemsProps } from '@/types/common';
-import { Settings, User } from 'lucide-react';
+import { CalendarClock, History, Settings, User } from 'lucide-react';
 import { USER_ROLE } from './role';
 
 const accountNavItems = ({ role }: { role: string }) => {
@@ -40,22 +40,22 @@ const accountNavItems = ({ role }: { role: string }) => {
     //   icon: Tag,
     //   variant: 'ghost',
     // },
-    // {
-    //   title: 'Bookings',
-    //   label: '',
-    //   link: `/account/bookings`,
-    //   key: 'bookings',
-    //   icon: CalendarClock,
-    //   variant: 'ghost',
-    // },
-    // {
-    //   title: 'Trip History',
-    //   label: '',
-    //   link: `/account/history`,
-    //   key: 'history',
-    //   icon: History,
-    //   variant: 'ghost',
-    // },
+    {
+      title: 'Bookings',
+      label: '',
+      link: `/account/bookings`,
+      key: 'bookings',
+      icon: CalendarClock,
+      variant: 'ghost',
+    },
+    {
+      title: 'Trip History',
+      label: '',
+      link: `/account/history`,
+      key: 'history',
+      icon: History,
+      variant: 'ghost',
+    },
     // {
     //   title: 'Reviews',
     //   label: '',
@@ -92,14 +92,14 @@ const accountNavItems = ({ role }: { role: string }) => {
     //   icon: Car,
     //   variant: 'ghost',
     // },
-    // {
-    //   title: 'Trip History',
-    //   label: '',
-    //   link: `/account/history`,
-    //   key: 'history',
-    //   icon: History,
-    //   variant: 'ghost',
-    // },
+    {
+      title: 'Trip History',
+      label: '',
+      link: `/account/history`,
+      key: 'history',
+      icon: History,
+      variant: 'ghost',
+    },
     // {
     //   title: 'Support',
     //   label: '',

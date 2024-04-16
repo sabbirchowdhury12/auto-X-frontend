@@ -2,7 +2,7 @@
 /* eslint-disable no-unsafe-optional-chaining */
 'use client';
 
-import { Heading } from '@/components/heading';
+import DashboardHeading from '@/components/dashboardHeading';
 import ImageUpload from '@/components/imageUpload';
 import { Button } from '@/components/ui/button';
 import {
@@ -35,68 +35,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
-
-// const initialData = {
-//   vehicleId: 'V123',
-//   model: 'Toyota Corolla',
-//   mileage: 50000.5,
-//   color: 'Blue',
-//   images: [
-//     'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2FyfGVufDB8fDB8fHww',
-//   ],
-
-//   overview: 'Well-maintained sedan with spacious interior',
-//   basePrice: 25000,
-//   fuelType: 'Petrol',
-//   passengerCapacity: 5,
-//   location: 'New York',
-//   plateNo: 'ABC123',
-//   chassisNo: '12345678901234567',
-//   status: 'Available',
-//   owner: 'John Doe',
-//   vehicleType: 'Sedan',
-//   brand: 'Toyota',
-//   driverId: 'D1234',
-//   createdAt: '2024-02-04T10:00:00Z',
-//   updatedAt: '2024-02-04T10:00:00Z',
-// };
-
-// {
-//   "name": "Driver 1",
-//   "email": "driver1@example.com",
-//   "password": "123321",
-//   "gender": "Male",
-//   "address": "123 Main St, City, Country",
-//   "image": "https://example.com/profile.jpg",
-//   "contactNo": "+1234567890",
-//   "licenseNo": "ABCD1234",
-//   "licenseExpire": "2024-02-08T07:12:24.084Z",
-//   "nidNo": "12345678901234567"
-// }
-// {
-//   "model": "Toyota Camry",
-//   "mileage": 50000,
-//   "color": "Red",
-//   "images": [
-//       "image_url1",
-//       "image_url2"
-//   ],
-//   "overview": "This is a spacious and reliable sedan.",
-//   "basePrice": 50,
-//   "fuelType": "Petrol",
-//   "passengerCapacity": 5,
-//   "location": "City, Country",
-//   "plateNo": "ABC123",
-//   "chassisNo": "12345678901234567",
-//   "status": "Available",
-//   "owner": "Owner's Name",
-//   "vehicleType": "XL",
-//   "brand": "Toyota",
-//   "year": "2022",
-//   "registrationNumber": "REG123456",
-//   "rentalRate": 60,
-//   "driverId": "2849aebb-3828-4d53-8d1f-d8da24c616d3"
-// }
 
 const formSchema = z.object({
   model: z.string({ required_error: 'Model is required' }).min(1),
@@ -237,7 +175,8 @@ const VehicleForm = ({ initialData }: any) => {
   };
   return (
     <div className="m-4 ">
-      <Heading title={title} description={description} />
+      <DashboardHeading title={title} description={description} />
+
       <Separator />
       <Form {...form}>
         <form

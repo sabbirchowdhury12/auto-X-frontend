@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const ProfileCard = () => {
   const user = getClientUserInfo();
-  const { data } = useGetProfileQuery(user.id);
+  const { data } = useGetProfileQuery(user?.id);
   return (
     <div className="p-4">
       <div className="flex items-center justify-between">

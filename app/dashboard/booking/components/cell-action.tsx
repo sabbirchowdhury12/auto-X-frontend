@@ -23,15 +23,12 @@ type CellActionProps = {
 };
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  console.log(data);
   const router = useRouter();
 
   const [loading, isLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const onDelete: () => Promise<void> = async () => {
-    console.log('delete');
-  };
+  const onDelete: () => Promise<void> = async () => {};
 
   return (
     <>

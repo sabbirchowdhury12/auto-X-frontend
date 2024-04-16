@@ -65,7 +65,7 @@ const ReservationClient = () => {
                   />
                 ))
               ) : (
-                <p>NO Result Found</p>
+                <p className="text-center">NO Result Found</p>
               )}
             </div>
           </div>
@@ -79,7 +79,7 @@ const ReservationClient = () => {
                 <VehicleDetails selectedCar={selectedCar} />{' '}
               </>
             ) : (
-              <p>select a car</p>
+              <p className="text-center">Select a car</p>
             )}
           </div>
         </div>

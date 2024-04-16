@@ -1,5 +1,5 @@
 const TripHistoryPage = () => {
-  return <div>This is trip history page</div>;
+  return <div>Cooming soon</div>;
 };
 
 export default TripHistoryPage;

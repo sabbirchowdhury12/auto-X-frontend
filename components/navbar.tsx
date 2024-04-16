@@ -8,11 +8,11 @@ import {
 } from '@/components/ui/sheet';
 import { AlignRight } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import logo from '../assets/logo.png';
 import CustomImage from './customImage';
 import { NavItems } from './navItems';
 import UserProfile from './userProfile';
+import { useEffect } from 'react';
 
 const NavBar = () => {
   const handleScroll = () => {

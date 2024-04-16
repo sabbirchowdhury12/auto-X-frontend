@@ -15,11 +15,7 @@ const Banner = () => {
       }}
     >
       <div className="absolute bottom-0 left-0 inset-0 bg-black opacity-50 w-full "></div>
-      <Heading
-        title="reservation"
-        sub_title="Reseve Tour choche"
-        color="white"
-      />
+      <Heading title="reservation" sub_title="Reseve A Car" color="white" />
     </div>
   );
 };

@@ -88,7 +88,7 @@ const MonthlyBookingForm = ({ selectedCar }: any) => {
       dropOffLocation: data.dropOffLocation,
       pickUpTime: data.pickUpTime,
       vehicleId: selectedCar ? selectedCar.id : data.vehicle,
-      userId: user.id,
+      userId: user?.id,
     };
 
     const res: any = await createBooking(bookingData);

@@ -11,7 +11,7 @@ const BookingDeatails = () => {
   const { bookingId } = useParams();
 
   const { data } = useGetSingleBookingQuery(bookingId);
-  console.log(data);
+
   return (
     <div>
       <div className="flex justify-between">

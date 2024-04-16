@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/select';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import DashboardHeading from '@/components/dashboardHeading';
 import ImageUpload from '@/components/imageUpload';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -28,12 +29,11 @@ import {
 } from '@/redux/api/profileApi';
 import { getClientUserInfo } from '@/services/auth.service';
 import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import DashboardHeading from '@/components/dashboardHeading';
-import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import { z } from 'zod';
 
 const formSchema = z.object({
   name: z.string({ required_error: 'Name is required' }),
@@ -50,8 +50,9 @@ type ProfileFormValues = z.infer<typeof formSchema>;
 const ProfileForm = () => {
   const [loading, setLoading] = useState(false);
 
-  const { id } = getClientUserInfo();
-  const { data } = useGetProfileQuery(id);
+  const user = getClientUserInfo();
+  const id = user?.id;
+  const { data } = useGetProfileQuery(user?.id);
   const [updateProfile] = useUpdateProfileMutation();
   const router = useRouter();
 
@@ -74,10 +75,8 @@ const ProfileForm = () => {
     setLoading(true);
     data.dateOfBirth = new Date(data.dateOfBirth).toISOString();
     const res: any = await updateProfile({ id, data });
-    console.log(res);
-    console.log(data);
+
     if (res?.data?.id) {
-      console.log('hi');
       router.push(`/account`);
       toast.success('Profile updated successfully');
     } else if (res?.error) {

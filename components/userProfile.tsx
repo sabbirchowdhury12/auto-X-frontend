@@ -30,7 +30,7 @@ export default function UserProfile() {
 
   const user = getClientUserInfo();
 
-  const { data } = useGetProfileQuery(user.id);
+  const { data } = useGetProfileQuery(user?.id);
 
   const handleLogout = () => {
     removeUserInfo(authKey);

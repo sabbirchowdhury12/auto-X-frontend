@@ -89,7 +89,7 @@ const Register = () => {
       storeUserInfo(res?.data?.accessToken);
       router.push('/');
     } else if (res?.error) {
-      toast.error(res?.error?.message);
+      toast.error('something wrong. try again.');
     }
 
     setLoading(false);

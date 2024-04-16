@@ -1,14 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import { AlertModal } from '@/components/modals/alertModal';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { useDeleteProfileMutation } from '@/redux/api/profileApi';
 import { getClientUserInfo } from '@/services/auth.service';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { ChangePasswordForm } from './components/changePasswordFrom';
-import Heading from '@/components/heading';
 
 const SettingsPage = () => {
   const router = useRouter();
@@ -19,24 +15,24 @@ const SettingsPage = () => {
 
   const [deleteUser] = useDeleteProfileMutation();
 
-  const onDelete = async () => {
-    setLoading(true);
+  // const onDelete = async () => {
+  //   setLoading(true);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const res: any = await deleteUser(user.id);
+  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //   const res: any = await deleteUser(user.id);
 
-    if (res?.data?._id) {
-      toast.success('Account deleted successfully');
-      router.push('/');
-    }
+  //   if (res?.data?._id) {
+  //     toast.success('Account deleted successfully');
+  //     router.push('/');
+  //   }
 
-    if (res?.error) {
-      toast.error(res?.error?.message);
-    }
+  //   if (res?.error) {
+  //     toast.error(res?.error?.message);
+  //   }
 
-    setLoading(false);
-    setOpen(false);
-  };
+  //   setLoading(false);
+  //   setOpen(false);
+  // };
   return (
     <div>seeting page</div>
     // <div className="m-4 p-6  border shadow-md rounded-md">

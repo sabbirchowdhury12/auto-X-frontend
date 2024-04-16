@@ -52,7 +52,7 @@ const SideBar = ({ children, sideNavItems }: SideBarProps) => {
             setCookie('resizable-panels:collapsed', false);
           }}
           className={cn(
-            'max-w-[30%] lg:max-w-[16%] bg-black',
+            'max-w-[30%] lg:max-w-[16%] bg-secondary',
             isCollapsed &&
               'min-w-[50px] transition-all duration-300 ease-in-out',
           )}

@@ -8,7 +8,7 @@ import UserProfile from './userProfile';
 
 const SecondaryNavBar = () => {
   return (
-    <nav className="bg-black h-14 flex items-center justify-between px-6">
+    <nav className="bg-secondary h-14 flex items-center justify-between px-6">
       <Link href={'/'}>
         <CustomImage
           src={logo}

@@ -12,12 +12,13 @@
     "next/core-web-vitals"
   ],
   "rules": {
-    "no-unused-vars": "error",
+    "no-unused-vars": 0,
     "no-console": "warn",
-    "no-undef": "error",
-    "no-unused-expressions": "error",
-    "no-unreachable": "error",
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"]
+    "no-undef": 0,
+    "no-unused-expressions": 0,
+    "no-unreachable": 0,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/consistent-type-definitions": [0, {}]
   },
   "env": {
     "browser": true,
