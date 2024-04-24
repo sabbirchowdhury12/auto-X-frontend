@@ -6,7 +6,7 @@
 
 ##### Github (front-end)
 
-[https://github.com/sabbirchowdhury12/nextjs-auto-X-frontend](https://github.com/sabbirchowdhury12/nextjs-auto-X-frontend)
+[https://github.com/sabbirchowdhury12/auto-X-frontend](https://github.com/sabbirchowdhury12/auto-X-frontend)
 
 ##### Github (Back-end)
 
