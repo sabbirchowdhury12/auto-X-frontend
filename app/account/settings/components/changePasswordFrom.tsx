@@ -19,8 +19,9 @@ import { Input } from '@/components/ui/input';
 import { useChangePasswordMutation } from '@/redux/api/authApi';
 import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { getClientUserInfo } from '@/services/auth.service';
 
-const formSchema = z
+const formSchema: any = z
   .object({
     oldPassword: z
       .string({ required_error: 'Old password is required' })
@@ -48,6 +49,7 @@ type ChangePasswordFormValues = z.infer<typeof formSchema>;
 
 export const ChangePasswordForm = () => {
   const [loading, setLoading] = useState(false);
+  const user = getClientUserInfo();
 
   const [changePassword] = useChangePasswordMutation();
 
@@ -59,6 +61,8 @@ export const ChangePasswordForm = () => {
     setLoading(true);
 
     const changedData = {
+      email: 'dsf',
+      id: user?.id,
       oldPassword: data.oldPassword,
       newPassword: data.newPassword,
     };
@@ -141,7 +145,12 @@ export const ChangePasswordForm = () => {
               )}
             />
           </div>
-          <Button disabled={loading} className="ml-auto" type="submit">
+          <Button
+            disabled={loading}
+            size={'sm'}
+            className="ml-auto"
+            type="submit"
+          >
             {loading ? (
               <>
                 {'Change password'}

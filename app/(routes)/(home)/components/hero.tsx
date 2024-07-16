@@ -3,6 +3,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { MoveUpRight } from 'lucide-react';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
@@ -62,12 +63,16 @@ const Hero = () => {
                 <p className="font-bold text-primary ">/24 hours</p>
               </h2>
               <div className="mt-4 md:mt-10 flex  items-center">
-                <Button>
-                  Veiw Deatails <MoveUpRight size={14} className="ml-2" />
-                </Button>
-                <Button variant={'defaultOutline'} className="ml-4">
-                  Rent Now <MoveUpRight size={14} className="ml-2" />
-                </Button>
+                <Link href={'/reservations'}>
+                  <Button>
+                    Veiw Deatails <MoveUpRight size={14} className="ml-2" />
+                  </Button>
+                </Link>
+                <Link href={'/reservations'}>
+                  <Button variant={'defaultOutline'} className="ml-4">
+                    Rent Now <MoveUpRight size={14} className="ml-2" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

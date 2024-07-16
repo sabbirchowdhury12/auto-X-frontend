@@ -79,6 +79,9 @@ const MonthlyBookingForm = ({ selectedCar }: any) => {
   });
 
   const onSubmit = async (data: monthlyBookingFormValues) => {
+    if (!user.id) {
+      router.push('/login');
+    }
     setLoading(true);
 
     const bookingData = {
@@ -121,7 +124,7 @@ const MonthlyBookingForm = ({ selectedCar }: any) => {
                     <Input
                       disabled={loading}
                       {...field}
-                      placeholder="Location"
+                      placeholder="Pick up location"
                     />
                   </FormControl>
                   <FormMessage />
@@ -138,7 +141,7 @@ const MonthlyBookingForm = ({ selectedCar }: any) => {
                     <Input
                       disabled={loading}
                       {...field}
-                      placeholder="Location"
+                      placeholder="Drop of location"
                     />
                   </FormControl>
                   <FormMessage />

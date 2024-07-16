@@ -21,11 +21,11 @@ import { toast } from 'sonner';
 import CustomImage from '@/components/customImage';
 import GoogleIcon from '@/components/icons/google';
 import { useUserLoginMutation } from '@/redux/api/authApi';
-import { storeUserInfo } from '@/services/auth.service';
+import { getClientUserInfo, storeUserInfo } from '@/services/auth.service';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -38,6 +38,13 @@ import {
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const user = getClientUserInfo();
+    if (user.id) {
+      router.push('/');
+    }
+  }, [router]);
 
   const [userLogin] = useUserLoginMutation();
 

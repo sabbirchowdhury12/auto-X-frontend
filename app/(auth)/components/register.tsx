@@ -20,12 +20,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useUserRegisterMutation } from '@/redux/api/authApi';
-import { storeUserInfo } from '@/services/auth.service';
+import { getClientUserInfo, storeUserInfo } from '@/services/auth.service';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
@@ -62,6 +62,13 @@ const Register = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const user = getClientUserInfo();
+    if (user.id) {
+      router.push('/');
+    }
+  }, [router]);
 
   const [register] = useUserRegisterMutation();
 
