@@ -1,8 +1,17 @@
 import { TSideNavItemsProps } from '@/types/common';
-import { Car, KanbanSquare, LineChart, User } from 'lucide-react';
+import {
+  Car,
+  History,
+  KanbanSquare,
+  LineChart,
+  MessageSquare,
+  User,
+} from 'lucide-react';
 import { USER_ROLE } from './role';
 
 const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
+  console.log(role);
+
   const defaultItems: TSideNavItemsProps = [
     {
       title: 'Overview',
@@ -10,6 +19,32 @@ const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
       link: `/dashboard`,
       key: 'overview',
       icon: LineChart,
+      variant: 'ghost',
+    },
+  ];
+  const customerItems: TSideNavItemsProps = [
+    {
+      title: 'Manage Booking',
+      label: '',
+      link: `/dashboard/booking`,
+      key: 'booking',
+      icon: KanbanSquare,
+      variant: 'ghost',
+    },
+    {
+      title: 'Trip History',
+      label: '',
+      link: `/dashboard/history`,
+      key: 'history',
+      icon: History,
+      variant: 'ghost',
+    },
+    {
+      title: 'Reviews',
+      label: '',
+      link: `/dashboard/reviews`,
+      key: 'reviews',
+      icon: MessageSquare,
       variant: 'ghost',
     },
   ];
@@ -44,6 +79,7 @@ const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
 
   if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
   else if (role === USER_ROLE.ADMIN) return superAdminSidebarItems;
+  else if (role === USER_ROLE.CUSTOMER) return customerItems;
   else {
     return defaultItems;
   }

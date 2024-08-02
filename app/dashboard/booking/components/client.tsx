@@ -10,6 +10,7 @@ import { Booking, columns } from './columns';
 
 export const BookingClient = () => {
   const { data: booking, isLoading } = useGetAllBookingQuery({});
+
   if (isLoading) {
     return <Loading />;
   }

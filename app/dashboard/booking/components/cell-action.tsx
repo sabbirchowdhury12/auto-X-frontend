@@ -15,6 +15,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { getClientUserInfo } from '@/services/auth.service';
 import { AlertDialog } from '@radix-ui/react-alert-dialog';
 import { Booking } from './columns';
 
@@ -27,6 +28,8 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const [loading, isLoading] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const user = getClientUserInfo();
 
   const onDelete: () => Promise<void> = async () => {};
 
@@ -56,11 +59,13 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           >
             <FileText className="mr-2 h-4 w-4" /> Details
           </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => router.push(`/dashboard/booking/update`)}
-          >
-            <Edit className="mr-2 h-4 w-4" /> Update
-          </DropdownMenuItem>
+          {user?.role !== 'CUSTOMER' && (
+            <DropdownMenuItem
+              onClick={() => router.push(`/dashboard/booking/update`)}
+            >
+              <Edit className="mr-2 h-4 w-4" /> Update
+            </DropdownMenuItem>
+          )}
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" /> Delete
           </DropdownMenuItem>

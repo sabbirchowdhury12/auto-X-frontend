@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import SecondaryNavBar from '@/components/secondaryNavBar';
 import SideBar from '@/components/sideBar';
@@ -25,6 +26,7 @@ export default function DashboardLayout({
     } else {
       try {
         const userData = JSON.parse(userString);
+
         setUser(userData as User); // Set user state with parsed user data, casting it to User
       } catch (error) {
         router.push('/login');

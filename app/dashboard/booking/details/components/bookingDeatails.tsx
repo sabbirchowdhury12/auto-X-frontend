@@ -4,31 +4,48 @@ import DashboardHeading from '@/components/dashboardHeading';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
+import { USER_ROLE } from '@/constants/role';
 import { useGetSingleBookingQuery } from '@/redux/api/bookingApi';
+import { getClientUserInfo } from '@/services/auth.service';
 import { useParams } from 'next/navigation';
+
+import DriverDetails from '@/app/dashboard/driver/details/page';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 const BookingDeatails = () => {
   const { bookingId } = useParams();
 
   const { data } = useGetSingleBookingQuery(bookingId);
+  const driver = data?.vehicle?.driver;
+  const user = getClientUserInfo();
 
   return (
-    <div>
+    <Dialog>
       <div className="flex justify-between">
         <DashboardHeading
           title={`Reservation no ${data?.bookingId}`}
           description={'Reservation deatails'}
         />
-        <div>
-          <Button size={'sm'}>Accept</Button>
-          <Button
-            size={'sm'}
-            variant={'defaultOutline'}
-            className="ml-4 text-black"
-          >
-            Decline
-          </Button>
-        </div>
+        {user?.role !== USER_ROLE.CUSTOMER ? (
+          <div>
+            <Button size={'sm'}>Accept</Button>
+            <Button
+              size={'sm'}
+              variant={'defaultOutline'}
+              className="ml-4 text-black"
+            >
+              Decline
+            </Button>
+          </div>
+        ) : (
+          <Button size={'sm'}>Payment</Button>
+        )}
       </div>
       <Separator />
 
@@ -118,20 +135,18 @@ const BookingDeatails = () => {
             <TableBody>
               <TableRow>
                 <TableCell className="font-medium">Driver Id</TableCell>
-                <TableCell className="text-right">
-                  {data?.vehicle?.driver?.driverId}
-                </TableCell>
+                <TableCell className="text-right">{driver?.driverId}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">Licesnce NO</TableCell>
                 <TableCell className="text-right">
-                  {data?.vehicle?.driver?.licenseNo}
+                  {driver?.licenseNo}
                 </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">License Expire</TableCell>
                 <TableCell className="text-right">
-                  {data?.vehicle?.driver?.licenseExpire}
+                  {driver?.licenseExpire}
                 </TableCell>
               </TableRow>
               <TableCell>
@@ -140,9 +155,15 @@ const BookingDeatails = () => {
                   className="text-black text-right mt-6"
                   size={'sm'}
                 >
-                  {' '}
-                  Veiw Driver Details
+                  <DialogTrigger>Deatails For Driver</DialogTrigger>
                 </Button>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogDescription>
+                      <DriverDetails driver={driver} />
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
               </TableCell>
             </TableBody>
           </Table>
@@ -226,7 +247,7 @@ const BookingDeatails = () => {
           </Table>
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };
 
