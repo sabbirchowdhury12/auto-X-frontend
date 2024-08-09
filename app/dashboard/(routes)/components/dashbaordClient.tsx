@@ -1,42 +1,50 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CreditCard, DollarSign, Package } from 'lucide-react';
+import { DollarSign } from 'lucide-react';
+import Sparkchart from './charts';
 import BarChart from './charts/barChart';
 import LineChart from './charts/lineChart';
+
+import PieCharts from './charts/pieChart';
+import AreaCharts from './charts/areaCharts';
 
 const DashboardClient = () => {
   return (
     <div className="m-4 grid gap-4">
       <div className="flex flex-col md:flex-row  justify-between  gap-4 text-center">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-center gap-2  space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Profit</CardTitle>
-            <DollarSign className="hidden md:block h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-sm md:text-2xl font-bold">2000</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-center gap-2  space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Rents</CardTitle>
-            <CreditCard className="hidden md:block h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-sm md:text-2xl font-bold">+50</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-center gap-2  space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Rent Running</CardTitle>
-            <Package className="hidden md:block h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-sm md:text-2xl font-bold">35</div>
-          </CardContent>
-        </Card>
+        <div className="bg-white shadow w-full rounded">
+          <div className="p-4 flex justify-between items-center">
+            <p className="flex flex-col justify-start items-start ">
+              Total Deposit <span className="font-bold text-2xl">$1200.00</span>
+            </p>
+            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
+          </div>
+          <Sparkchart color={'red'} />
+        </div>
+        <div className="bg-white shadow w-full">
+          <div className="p-4 flex justify-between items-center">
+            <p className="flex flex-col justify-start items-start ">
+              Total Deposit <span className="font-bold text-2xl">$1200.00</span>
+            </p>
+            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
+          </div>
+          <Sparkchart color={'gray'} />
+        </div>
+        <div className="bg-white shadow w-full">
+          <div className="p-4 flex justify-between items-center">
+            <p className="flex flex-col justify-start items-start ">
+              Total Deposit <span className="font-bold text-2xl">$1200.00</span>
+            </p>
+            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
+          </div>
+          <Sparkchart color={'blue'} />
+        </div>
       </div>
+      <div className="flex flex-col md:flex-row gap-5 bg-white">
+        <PieCharts />
+        <AreaCharts />
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
         <div className=" border shadow-sm rounded-md p-5">
           <BarChart />
@@ -50,3 +58,24 @@ const DashboardClient = () => {
 };
 
 export default DashboardClient;
+
+{
+  /* <Card>
+<CardHeader className="flex flex-row items-center justify-center gap-2  space-y-0 pb-2">
+  <CardTitle className="text-sm font-medium">Rents</CardTitle>
+  <CreditCard className="hidden md:block h-4 w-4 text-muted-foreground" />
+</CardHeader>
+<CardContent>
+  <div className="text-sm md:text-2xl font-bold">+50</div>
+</CardContent>
+</Card>
+<Card>
+<CardHeader className="flex flex-row items-center justify-center gap-2  space-y-0 pb-2">
+  <CardTitle className="text-sm font-medium">Rent Running</CardTitle>
+  <Package className="hidden md:block h-4 w-4 text-muted-foreground" />
+</CardHeader>
+<CardContent>
+  <div className="text-sm md:text-2xl font-bold">35</div>
+</CardContent>
+</Card> */
+}

@@ -137,7 +137,7 @@ export const DriverClient = () => {
         </Button>
       </div>
       <Separator />
-      <div className="p-6 border rounded-md shadow-sm">
+      <div className="p-6 border rounded-md shadow-sm bg-white">
         <DataTable
           searchKey="status"
           columns={columns}

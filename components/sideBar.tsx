@@ -131,7 +131,7 @@ const SideBar = ({ children, sideNavItems }: SideBarProps) => {
         <ResizablePanel
           defaultSize={defaultLayout[1]}
           minSize={30}
-          className="p-4 rounded-lg 
+          className="p-4 bg-[#F5F5F5] rounded-lg 
           "
         >
           {children}

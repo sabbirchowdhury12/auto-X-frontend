@@ -15,9 +15,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
 import { AlertModal } from '@/components/modals/alertModal';
 import { useDeleteDriverMutation } from '@/redux/api/driverApi';
 import { toast } from 'sonner';
+import DriverDetails from '../details/page';
 import { Driver } from './columns';
 
 type CellActionProps = {
@@ -49,7 +58,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   };
 
   return (
-    <>
+    <Dialog>
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
@@ -65,11 +74,11 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuItem
-            onClick={() => router.push(`/dashboard/driver/details`)}
-          >
-            <FileText className="mr-2 h-4 w-4" /> Details
+          <DropdownMenuItem>
+            <FileText className="mr-2 h-4 w-4" />{' '}
+            <DialogTrigger>Deatails</DialogTrigger>
           </DropdownMenuItem>
+
           <DropdownMenuItem
             onClick={() => router.push(`/dashboard/driver/${data.id}`)}
           >
@@ -80,6 +89,14 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+
+      <DialogContent>
+        <DialogHeader>
+          <DialogDescription>
+            <DriverDetails driver={data} />
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 };

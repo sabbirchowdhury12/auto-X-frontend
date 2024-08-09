@@ -34,7 +34,7 @@ export const BookingClient = () => {
         description="Manage your bookings"
       />
       <Separator />
-      <div className="p-6 border rounded-md shadow-sm">
+      <div className="p-6 border rounded-md shadow-sm bg-white">
         <DataTable
           searchKey="bookingId"
           columns={columns}

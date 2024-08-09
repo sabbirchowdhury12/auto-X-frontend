@@ -78,7 +78,7 @@ export const VehicleClient = () => {
         </div>
       </div>
 
-      <div className="p-6 border rounded-md shadow mt-8">
+      <div className="p-6 border rounded-md shadow mt-8 bg-white">
         <DataTable
           searchKey="model"
           columns={columns}
