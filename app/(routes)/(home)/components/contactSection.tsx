@@ -11,7 +11,7 @@ const ContactSection = () => {
       }}
     >
       <div className="absolute bottom-0 left-0 inset-0 bg-black opacity-50 w-full "></div>
-      <div className="container text-white text-center ">
+      <div className="container text-white text-center my-20">
         <Heading
           title="Rent Your Car"
           sub_title="Interested in Renting? Don`t hesitate and send us a message."

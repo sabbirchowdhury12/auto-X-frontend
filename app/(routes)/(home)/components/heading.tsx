@@ -14,7 +14,7 @@ const Heading = ({ title, sub_title, color }: HeadingProps) => {
         {title}
       </h3>
       <h2
-        className={`text-2xl text-secondary font-bold mt-4 uppercase w-[85%] mx-auto text-center text-${color}`}
+        className={`text-lg md:text-2xl text-secondary font-bold mt-4 uppercase w-[85%] mx-auto text-center text-${color}`}
       >
         {sub_title}
       </h2>

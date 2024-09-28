@@ -5,6 +5,8 @@ import BookingStep from './components/bookingStep';
 import DownloadApp from './components/downloadApp';
 import Hero from './components/hero';
 import TopVehicle from './components/topVehicle';
+import VedioSection from './components/vedioSection';
+import Testimonial from './components/testimonial';
 
 const HomePage = () => {
   return (
@@ -18,7 +20,8 @@ const HomePage = () => {
         <TopVehicle />
       </Container>
       <ContactSection />
-      {/* <VedioSection /> */}
+      <Testimonial />
+      <VedioSection />
       <Container>
         <DownloadApp />
       </Container>

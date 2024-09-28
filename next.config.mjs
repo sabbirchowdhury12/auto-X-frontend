@@ -8,6 +8,7 @@ const nextConfig = {
       'images.unsplash.com',
       'duruthemes.com',
       'example.com',
+      'media.istockphoto.com',
     ],
     remotePatterns: [
       {

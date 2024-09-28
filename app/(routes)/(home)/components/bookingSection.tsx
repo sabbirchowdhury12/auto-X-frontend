@@ -1,6 +1,6 @@
 import Container from '@/components/container';
-import BookingPage from './booking';
 import Heading from './heading';
+import MonthlyBookingForm from '@/components/forms/monthlyBookingForm';
 
 const BookingSection = () => {
   return (
@@ -16,7 +16,7 @@ const BookingSection = () => {
         <Heading title="rent now" sub_title="book a car" color="white" />
 
         <Container>
-          <BookingPage />
+          <MonthlyBookingForm selectedCar={null} />
         </Container>
       </div>
     </section>

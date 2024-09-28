@@ -43,6 +43,7 @@ import { getClientUserInfo } from '@/services/auth.service';
 import { CalendarIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 const formSchema = z.object({
   pickUpLocation: z.string({ required_error: '' }),
@@ -313,20 +314,32 @@ const MonthlyBookingForm = ({ selectedCar }: any) => {
             )}
           </div>
           <div className="flex justify-end mt-6">
-            <Button
-              disabled={loading}
-              className="w-full md:w-[27%]"
-              type="submit"
-            >
-              {loading ? (
-                <>
-                  Book Now
-                  <Loader />
-                </>
-              ) : (
-                <>Book Now</>
-              )}
-            </Button>
+            {user && user?.id ? (
+              <Button
+                disabled={loading}
+                className="w-full md:w-[27%] font-bold"
+                type="submit"
+              >
+                {loading ? (
+                  <>
+                    Book Now
+                    <Loader />
+                  </>
+                ) : (
+                  <>Book Now</>
+                )}
+              </Button>
+            ) : (
+              <Link href={'/login'} className="block w-full text-right">
+                <Button
+                  disabled={loading}
+                  className="w-full md:w-[27%]  font-bold"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
         </form>
       </Form>
