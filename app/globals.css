@@ -95,14 +95,6 @@ section {
   position: relative;
 }
 
-.video {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 /* //reservation*/
 .reservation li {
   list-style: none;

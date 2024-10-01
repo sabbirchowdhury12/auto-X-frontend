@@ -40,6 +40,12 @@ export const columns: ColumnDef<Booking>[] = [
       <DataTableColumnHeader column={column} title="Pick date" />
     ),
   },
+  {
+    accessorKey: 'paymentStatus',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Payment" />
+    ),
+  },
   // {
   //   accessorKey: 'pickUpTime',
   //   header: ({ column }) => (

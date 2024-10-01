@@ -17,20 +17,24 @@ import {
   DialogHeader,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import Loading from '@/app/loading';
 
 const BookingDeatails = () => {
   const { bookingId } = useParams();
 
-  const { data } = useGetSingleBookingQuery(bookingId);
+  const { data, isLoading } = useGetSingleBookingQuery(bookingId);
+  if (isLoading) {
+    return <Loading />;
+  }
   const driver = data?.vehicle?.driver;
   const user = getClientUserInfo();
 
   return (
     <Dialog>
-      <div className="flex justify-between">
+      <div className="flex justify-between my-4">
         <DashboardHeading
-          title={`Reservation no ${data?.bookingId}`}
-          description={'Reservation deatails'}
+          title={`Booking no ${data?.bookingId}`}
+          description={'Booking deatails'}
         />
         {user?.role !== USER_ROLE.CUSTOMER ? (
           <div>
@@ -50,8 +54,10 @@ const BookingDeatails = () => {
       <Separator />
 
       <div className="reservation grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between  gap-6 text-sm ">
-        <div className="shadow border p-5 ">
-          <p className="text-center font-semibold pb-4">General Inforamtion</p>
+        <div className="shadow bg-white p-5 ">
+          <p className="text-center text-xl text-secondary font-bold pb-4">
+            General Inforamtion
+          </p>
           <Table>
             <TableBody>
               <TableRow>
@@ -91,8 +97,10 @@ const BookingDeatails = () => {
             </TableBody>
           </Table>
         </div>
-        <div className="shadow border p-5">
-          <p className="text-center font-semibold pb-4">Customer Inforamtion</p>
+        <div className="shadow rounded bg-white p-5">
+          <p className="text-center text-xl text-secondary font-bold pb-4">
+            Customer Inforamtion
+          </p>
           <Table>
             <TableBody>
               <TableRow>
@@ -129,8 +137,10 @@ const BookingDeatails = () => {
             </TableBody>
           </Table>
         </div>
-        <div className="shadow border p-5">
-          <p className="text-center font-semibold pb-4">Diver Inforamtion</p>
+        <div className="shadow rounded bg-white p-5">
+          <p className="text-center text-xl text-secondary font-bold pb-4">
+            Diver Inforamtion
+          </p>
           <Table>
             <TableBody>
               <TableRow>
@@ -173,12 +183,14 @@ const BookingDeatails = () => {
       <div className="grid grid-col-1 md:grid-cols-3 mt-6  gap-4">
         <div className="car col-span-2 flex gap-2 flex-col md:flex-row justify-between items-center bg-white border p-4">
           <div className="">
-            <p className="text-center font-semibold pb-4">Car Inforamtion</p>
+            <p className="text-center text-xl text-secondary font-bold pb-4">
+              Car Inforamtion
+            </p>
 
             <CustomImage
               src={data?.vehicle?.images[1]}
               alt=""
-              className="h-full w-full"
+              className="h-56 w-full"
             />
           </div>
           <div className="car-details">
@@ -214,7 +226,10 @@ const BookingDeatails = () => {
             </Table>
           </div>
         </div>
-        <div className="documents">
+        <div className="documents shadow rounded bg-white p-5">
+          <p className="text-center text-xl text-secondary font-bold pb-4">
+            Downlaod Voucher
+          </p>
           <Table>
             <TableBody>
               <TableRow>

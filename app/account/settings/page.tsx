@@ -34,7 +34,7 @@ const SettingsPage = () => {
   //   setOpen(false);
   // };
   return (
-    <div>seeting page</div>
+    <div>Coming....</div>
     // <div className="m-4 p-6  border shadow-md rounded-md">
     //   <AlertModal
     //     isOpen={open}

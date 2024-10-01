@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -69,8 +69,12 @@ type monthlyBookingFormValues = z.infer<typeof formSchema>;
 const MonthlyBookingForm = ({ selectedCar }: any) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [user, setuser] = useState<any>({});
 
-  const user = getClientUserInfo();
+  useEffect(() => {
+    const user = getClientUserInfo();
+    setuser(user);
+  }, []);
 
   const [createBooking] = useCreateBookingMutation();
   const { data: vehicles } = useGetAvailableVehicleQuery({});

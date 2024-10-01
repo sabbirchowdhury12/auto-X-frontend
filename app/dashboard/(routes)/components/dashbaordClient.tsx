@@ -1,14 +1,35 @@
 'use client';
 
-import { DollarSign } from 'lucide-react';
 import Sparkchart from './charts';
 import BarChart from './charts/barChart';
 import LineChart from './charts/lineChart';
 
 import PieCharts from './charts/pieChart';
 import AreaCharts from './charts/areaCharts';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { authKey } from '@/constants/authKey';
+import { USER_ROLE } from '@/constants/role';
 
 const DashboardClient = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const userString = localStorage.getItem(authKey);
+    if (!userString) {
+      router.push('/login');
+    } else {
+      try {
+        const userData = JSON.parse(userString);
+
+        if (userData.role === USER_ROLE.CUSTOMER) {
+          router.push('/dashboard/booking');
+        }
+      } catch (error) {
+        router.push('/login');
+      }
+    }
+  }, [router]);
+
   return (
     <div className="m-4 grid gap-4">
       <div className="flex flex-col md:flex-row  justify-between  gap-4 text-center">
@@ -17,7 +38,6 @@ const DashboardClient = () => {
             <p className="flex flex-col justify-start items-start ">
               Total Deposit <span className="font-bold text-2xl">$1200.00</span>
             </p>
-            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
           </div>
           <Sparkchart color={'red'} />
         </div>
@@ -26,7 +46,6 @@ const DashboardClient = () => {
             <p className="flex flex-col justify-start items-start ">
               Total Deposit <span className="font-bold text-2xl">$1200.00</span>
             </p>
-            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
           </div>
           <Sparkchart color={'gray'} />
         </div>
@@ -35,7 +54,6 @@ const DashboardClient = () => {
             <p className="flex flex-col justify-start items-start ">
               Total Deposit <span className="font-bold text-2xl">$1200.00</span>
             </p>
-            <DollarSign className="font-bold text-red-600 bg-red-200 rounded " />
           </div>
           <Sparkchart color={'blue'} />
         </div>

@@ -10,8 +10,6 @@ import {
 import { USER_ROLE } from './role';
 
 const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
-  console.log(role);
-
   const defaultItems: TSideNavItemsProps = [
     {
       title: 'Overview',
@@ -42,7 +40,7 @@ const dashboardNavItems = ({ role }: { role: string | undefined | null }) => {
     {
       title: 'Reviews',
       label: '',
-      link: `/dashboard/reviews`,
+      link: `/dashboard/feedback`,
       key: 'reviews',
       icon: MessageSquare,
       variant: 'ghost',

@@ -75,7 +75,7 @@ const DriverForm = ({ initialData }: any) => {
   const description = initialData
     ? 'Update driver infomation'
     : 'Add a new driver';
-  const action = initialData ? 'Save changes' : 'Create';
+  const action = initialData ? 'Save changes' : 'Create Driver';
 
   const defaultValues = {
     name: initialData?.name,
@@ -365,7 +365,7 @@ const DriverForm = ({ initialData }: any) => {
               </>
             )}
           </div>
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" size={'lg'} disabled={loading}>
             {loading ? (
               <>
                 {action}

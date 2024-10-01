@@ -59,13 +59,13 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           >
             <FileText className="mr-2 h-4 w-4" /> Details
           </DropdownMenuItem>
-          {user?.role !== 'CUSTOMER' && (
+          {/* {user?.role !== 'CUSTOMER' && (
             <DropdownMenuItem
               onClick={() => router.push(`/dashboard/booking/update`)}
             >
               <Edit className="mr-2 h-4 w-4" /> Update
             </DropdownMenuItem>
-          )}
+          )} */}
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" /> Delete
           </DropdownMenuItem>

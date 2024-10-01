@@ -189,7 +189,7 @@ const VehicleForm = ({ initialData }: any) => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Images</FormLabel>
-                <FormControl>
+                <FormControl className="">
                   <ImageUpload
                     value={
                       Array.isArray(field.value)
@@ -537,7 +537,7 @@ const VehicleForm = ({ initialData }: any) => {
               )}
             />
           </div>
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" size={'lg'} disabled={loading}>
             {loading ? (
               <>
                 {action}

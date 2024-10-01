@@ -24,7 +24,7 @@ import { useUserLoginMutation } from '@/redux/api/authApi';
 import { getClientUserInfo, storeUserInfo } from '@/services/auth.service';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   Card,
@@ -38,6 +38,8 @@ import {
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const role = searchParams.get('role');
 
   useEffect(() => {
     const user = getClientUserInfo();
@@ -55,11 +57,12 @@ const Login = () => {
     }),
   });
 
+  // Conditionally set the default values based on the 'role' query parameter
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: role === 'admin' ? 'sabbir@gmail.com' : 'sabbir2@gmail.com',
+      password: 'ffffff',
     },
   });
 

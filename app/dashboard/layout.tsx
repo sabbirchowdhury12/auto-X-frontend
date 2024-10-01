@@ -17,8 +17,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const [user, setUser] = useState<User | null>(null); // Specify the type of user as User | null
-
+  const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     const userString = localStorage.getItem(authKey);
     if (!userString) {
@@ -27,7 +26,7 @@ export default function DashboardLayout({
       try {
         const userData = JSON.parse(userString);
 
-        setUser(userData as User); // Set user state with parsed user data, casting it to User
+        setUser(userData as User);
       } catch (error) {
         router.push('/login');
       }

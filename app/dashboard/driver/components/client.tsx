@@ -114,12 +114,13 @@ export const DriverClient = () => {
 
   const formattedDrivers: Driver[] = data?.map((item: any) => ({
     id: item.id,
-    // email: item?.user?.email,
+    userId: item?.userId,
     driverId: item.driverId,
     licenseNo: item.licenseNo,
     licenseExpire: formatDate(new Date(item?.licenseExpire), 'MMMM do, yyyy'),
     nidNo: item.nidNo,
     status: item.status,
+    createdAt: item.createdAt,
   }));
 
   return (
